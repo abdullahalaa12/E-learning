@@ -7,7 +7,11 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+<<<<<<< Updated upstream
                 
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+>>>>>>> Stashed changes
         <property name="context-root" value="coursera"/>
                 
         <property name="java-output-path" value="/coursera/target/classes"/>

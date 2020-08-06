@@ -13,6 +13,15 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< Updated upstream
+=======
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+>>>>>>> Stashed changes
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
