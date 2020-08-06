@@ -20,13 +20,14 @@ public class LoginServlet extends HttpServlet{
 		request.getRequestDispatcher("/WEB-INF/JSP/Main.jsp").forward(request, response);
 		System.out.println("Get is called");
 		System.out.println("Testing git");
+		Service.Register("abdullah", "456");
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String name=request.getParameter("name");
 		String password=request.getParameter("password");
-		if(Service.LoginValidation(name, password))
+		if(Service.LoginValidation(new User(name, password)))
 		{
 		request.setAttribute("name", name);
 		request.setAttribute("password", password);
