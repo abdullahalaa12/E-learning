@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/Login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Login.css">
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -21,11 +21,11 @@
     <div class="container">
         <div class="left-form">
             <div class="logo">
-                <img src="images/design.png">
+                <img src="/resources/images/design.png">
             </div>
             <div class="login-form">
                 <div class="profile-pic">
-                    <img src="images/pf.svg">
+                    <img src="/resources/images/pf.svg">
                 </div>
                 <input id="input-field1" type="text" placeholder="Username"><br>
                 <input id="input-field2" type="password" placeholder="Password">
@@ -43,13 +43,13 @@
             </div>  
         </div>
         <div class="right-form">
-            <img src="images/gg.svg">
+            <img src="/resources/images/gg.svg">
         </div>
     </div>
 </div>
 </div>
 <div class="load-page"> 
-    <img src="images/58.png" alt="" id="logo">
+    <img src="/resources/images/58.png" alt="" id="logo">
 </div>
 <script>
     window.onload = function()

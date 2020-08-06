@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/SignUp.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/SignUp.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
                     add_photo_alternate
                 </i> &nbsp; Upload Photo</label>
                 <input type="file" value="Add Photo" id="AddPhoto-btn" accept="image/*" onchange="loadFile(event)">
-                <img src="images/pf.svg" alt="" id="image">
+                <img src="/resources/images/pf.svg" alt="" id="image">
             </div>
             <div id="info-container">
             <input id="input-field1" type="text" placeholder="First Name">
@@ -306,7 +306,7 @@
            
         </div>
         </div>
-        <script src="js/Script.js"></script>
+        <script src="/resources/js/Script.js"></script>
         <script>
             window.onload = function(){
                 for(i=1;i<=6;i++)
