@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="css/Home.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/Home.css">
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -74,6 +75,6 @@
         </div>
         <footer class="footer"></footer>
     </div>
-    <script src="js/Script.js"></script>
+    <script src="/WEB-INF/js/Script.js"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		request.getRequestDispatcher("/WEB-INF/JSP/Main.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/Home.jsp").forward(request, response);
 		System.out.println("Get is called");
 		System.out.println("Testing git");
 		Service.Register("abdullah", "456");
@@ -31,12 +31,12 @@ public class LoginServlet extends HttpServlet{
 		{
 		request.setAttribute("name", name);
 		request.setAttribute("password", password);
-		request.getRequestDispatcher("/WEB-INF/JSP/Welcome.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/Welcome.jsp").forward(request, response);
 		}
 		else
 		{
 			request.setAttribute("ErrorMsg","Invalid Username/passwor !!");
-			request.getRequestDispatcher("/WEB-INF/JSP/Main.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
 		}
 		System.out.println("Post is called");
 	}
