@@ -1,0 +1,341 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color:#222f3e;
+    font-family: 'Alfa Slab One', cursive;
+    box-sizing: border-box;
+}
+*{
+    box-sizing: border-box;
+}
+.page .Big 
+{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(150deg,rgb(214,162,232),rgb(44,58,71));
+    background-size: 200%;
+    transition: 0.5s;
+    
+}
+.load-page
+{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #1e272e;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+.load-page .loader1
+{
+    border: 5px solid;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #D6A2E8;
+    animation: loader1 1.2s linear infinite;
+}
+.load-page .loader2
+{
+    border: 5px solid;
+    border-top-color: transparent;
+    border-radius: 50%;
+    color: #D6A2E8;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%,-50%);
+    animation: loader1 1.2s linear infinite;
+
+}
+@keyframes loader1{
+    0%{
+        color: #D6A2E8;
+    }
+    25%{
+        color:#82589F;
+    }
+    50%{
+        color:#2C3A47;
+    }
+    75%{
+        color:#CAD3C8;
+    }
+    100%{
+        color: white;
+    }
+    to{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
+.load-page span
+{
+    color: #D6A2E8;
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%,-50%);
+}
+.load-page span::first-letter{
+    font-size: 30px;
+
+}
+.page .Big:hover{
+    background-position: top;
+}
+.page .Big .container
+{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: white;
+    width: 1000px;
+    height: 700px;
+    position:absolute;
+    overflow: hidden;
+    border-top: 5px solid #D6A2E8;
+    border-left: 5px solid #D6A2E8;    
+    border-top-left-radius:150px;
+    border-top-right-radius:150px;
+    border-bottom-left-radius: 150PX;
+}
+.page .Big .container .right-form
+{
+
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    position: absolute;
+    width: 600px;
+    height: 100%;
+    right: 0;
+    clip-path: polygon(100% 16%, 17% 100%, 100% 100%);
+    background-size: 200%;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.page .Big .container .right-form:hover{
+    background-position: bottom;
+}
+.page .Big .container .right-form img
+{
+    width: 400px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+.page .Big .container .left-form
+{
+    background-color: white;
+    position: absolute;
+    width: 600px;
+    height: 100%;
+    left: 0;
+}
+.page .Big .container .left-form .logo img{
+
+    width: 300px;
+    left: 25%;
+    position: absolute;
+    height:300px;
+}
+.page .Big .clips1,.clips2,.clips3{
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+   
+}
+.page .Big .clips1{
+    left: 0;
+    top: 0;
+    clip-path: circle(84.1% at 0 0);
+}
+.page .Big .clips2{
+    right: 0;
+    top: 0;
+    clip-path: circle(77.1% at 99% 0);
+}
+.page .Big .container .left-form .login-form
+{
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    align-items: center;
+    display: block;
+    height: 300px;
+}
+.page .Big .container .left-form .login
+{
+    display: block;
+    border: none;
+    color: white;
+    font-family: 'Alfa Slab One', cursive;
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    border-radius: 30px;
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: 200%;
+    outline: none;
+
+}
+.page .Big .container .left-form .Signup
+{
+    display: block;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    border-radius: 30px;
+    position: absolute;
+    margin: auto;
+    top: 45%;
+    bottom: 0;
+    left: 65%;
+    right: 0;
+    width: 100px;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: 200%;
+    font-size: 15px;
+
+}
+.page .Big .container .left-form .login-form #eye-hide,#eye-visible {
+    display: block;
+    border: none;
+    background: transparent;
+    border-radius: 30px;
+    position: absolute;
+    left: 85%;
+    top: 55%;
+    cursor: pointer;
+  
+}
+#eye-visible{
+    display: none;
+}
+::-webkit-input-placeholder
+{
+    color:#aaa69d;
+    font-size:12pt;
+    font-family: 'Roboto', sans-serif;
+    opacity: 90%;
+}
+.page .Big .container .left-form .login-form #input-field1,#input-field2
+{
+    margin: 5px;
+    display: block;
+    color: #2C3A47;
+    width: 300px;
+    height: 50px;
+    outline: none;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-bottom:3px solid #2C3A47;
+    border-right: none;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Alfa Slab One', cursive;
+    transition: 0.25s;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    top: 20%;
+}
+.login-form .Forget{
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color:#aaa69d;
+    position: absolute;
+    top: 70%;
+}
+.login-form .Forget:hover{
+    text-decoration: underline;
+}
+.page .Big .container .left-form .login-form .input-field:focus{
+    border-bottom-color: #D6A2E8;
+}
+.page .Big .container .left-form button:hover
+{
+    background-position: bottom;
+}
+.page .Big .container .left-form .login-form .profile-pic
+{
+    left: 40%;
+    position: absolute;
+}
+.page .Big .container .left-form .login-form .profile-pic img
+{
+    width: 50px;
+    left: 50%;
+}
+.media 
+{
+    background-color: wheat;
+    top: 85%;
+    position: absolute;
+    display: inline-block;
+    width: 300px;
+    left: 25%;
+}
+.media a 
+{
+    text-decoration: none;
+    color:#2C3A47;
+    display: inline-flex;
+    position: absolute;
+    font-size: 15pt;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+}
+.media i{
+    line-height: 50px;
+}
+.media .m1{
+    left:5%;
+}
+.media .m2{
+    left:30%;
+}
+.media .m3{
+    left: 55%;
+}
+.media .m4{
+    left: 80%;
+}
+.media a:hover{
+    background-color:#D6A2E8;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.load-page #logo
+{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}

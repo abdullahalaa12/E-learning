@@ -1,0 +1,380 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+#con{
+    width: 200px;
+    height: 200vh;
+    background-color: burlywood;
+    
+
+}
+#Menu
+{   height:80%;
+    width: 15%;
+    background-color: yellow;
+    position: fixed;
+    background-size: 200%;
+    display: block;
+    transition: all 1s ease;  
+    overflow: visible;
+    top:0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+#Page-Content
+{
+    height: 400vh;
+    width: 100%;
+    transition: all 1s ease;  
+
+}
+#Container
+{
+    height: 70%;
+    width: 15%;
+    position: fixed;
+    display: block;
+    background-size: 200%;
+    top:0;
+    bottom: 0;
+    left: -12%;
+    margin: auto;
+    border: none;
+
+}
+#Container label{
+    cursor: pointer;
+    font-family: 'Bebas Neue', cursive;
+    position: relative;
+    font-size: 14pt;
+    color:white;
+    margin: auto;
+    letter-spacing: 3px;
+}
+#Container div{
+    cursor: pointer;
+    height: 50px;
+    width: 99%;
+    display: flex;
+    position: relative;
+    margin-top: 8px;
+    background-color:rgb(44,58,71);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius:20px;    
+
+    
+}
+#Container div:hover{
+    transform: translateX(80%);
+}
+#Container label:hover i{
+    color:#d6a2e8;
+}
+#Container i{
+    right: 2%;
+    top: 50%;
+    position: absolute;
+    margin: auto;
+    transform: translate(-50%,-50%);
+    color: #ffffff;
+
+}
+#Page-Content .ToLoginPage-btn{
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid white;
+    right: 0;
+    position: absolute;
+    color: white;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 15px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+
+}
+#Page-Content .ToLoginPage-btn:hover{
+    background-color: white;
+    color: rgb(44,58,71);
+}
+#Page-Content .ToRegisterPage-btn{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 3px solid white;
+    border-radius: 100px;
+    right: 0;
+    position: absolute;
+    color: rgb(44,58,71);
+    margin-top: 20px;
+    margin-right: 140px;
+    font-size: 15px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+#logo
+{
+    height: 80px;
+    width: 120px;
+    margin: auto;
+    position: relative;
+    border-radius: 50px;
+}
+#Page-Content div{
+    width: 100%;
+}
+#aboutus{
+    
+    background-color: transparent;
+    height:80vh;
+    margin: 10vh 0;
+    position: relative;
+}
+#aboutus .aboutus-con,#Contact .contact-con{
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+}
+#aboutus header,#Contact header{
+    font-family: 'Bebas Neue', cursive;
+    position: relative;
+     font-size: 40pt;
+     color:rgb(44,58,71);
+     margin: auto;
+     letter-spacing: 3px;
+}
+#aboutus .photo{
+    width: 35%;
+    height: 333px;
+    background: url(../images/guy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 30px;
+}
+#aboutus .paragraph{
+    width: 60%;
+    height: 333px;
+    position: absolute;
+    border-radius: 30px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+#Page-Content div .divider{
+    position: absolute;
+    width: 100%;
+    background-color: #2c3a47;
+    height: 5px;
+    border-radius: 10px;
+
+}
+#Contact{
+  
+    height: 100vh;
+    position: relative;
+
+}
+#Contact .contact-con{
+    background-color: white;
+}
+#Contact .message-info{
+    width: 35%;
+    height: 70%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 30px;
+    background-color:transparent;
+    align-items: center;
+    justify-content: center;
+}
+.message-info input,.message-info textarea{
+    display: block;
+    color: #2C3A47;
+    width: 300px;
+    height: 50px;
+    outline: none;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-bottom:3px solid #2C3A47;
+    border-right: none;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Alfa Slab One', cursive;
+    transition: 0.25s;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    margin: auto;
+    top: 30%;
+    margin-bottom: 30px;
+    resize: none;
+}
+#message{
+    height: 100px;
+}
+.message-info button{
+    display: block;
+    border: none;
+    color: white;
+    font-family: 'Alfa Slab One', cursive;
+    /*background: linear-gradient(120deg,rgb(255,184,184),rgb(44,58,71));*/
+    background: linear-gradient(120deg,rgb(44,58,71),rgb(255,184,184));
+    border-radius: 30px;
+    position: absolute;
+    margin: auto;
+    top: 90%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: 200%;
+    outline: none;
+}
+#Contact .our-resources{
+    width: 60%;
+    height: 70%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 30px;
+    background-color: transparent;
+   
+}
+#Contact .our-resources .icon{
+   background-color:#2C3A47;
+    width: 50px;
+    height: 50px;
+    color:#ffb8b8;
+    border-radius: 50%;
+    margin: 0 20px;
+    text-align: center;
+}
+#Contact .our-resources i{
+    font-size: 15pt;
+    line-height: 50px;
+}
+#Contact .our-resources p{
+    font-size: 18pt;
+}
+#Contact .our-resources .box{
+    top: 40%;
+    position: relative;
+    display: flex;
+    margin-bottom: 50px;
+    
+}
+#photo-divider{
+    background: url(../images/girl.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 60vh;
+}
+#Page-Content footer{
+    background-color: rgb(44,58,71);
+    height: 40vh;
+    
+}
+#photo-divider #shadow{
+    width: 100%;
+    height: 60vh;
+    background: rgba(0, 0, 0, 0.514);
+    position: relative;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+}
+.container {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: brown;
+}
+#navb{
+    height: 100vh;
+    width: 100%;
+    background-image: url(../gra.jpg);
+    background-size: cover;
+   background-attachment: fixed;
+    background-position: left center;
+}
+svg{
+    position: absolute;
+    bottom: 0;
+}
+#navb #shadow{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.514);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+}
+#title{
+    position: absolute;
+    height: 100px;
+    width: 800px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display:block
+}
+#title header{
+    font-family: 'Bebas Neue', cursive;
+    position: relative;
+     font-size: 60pt;
+     color:white;
+     margin: auto;
+     letter-spacing: 3px;
+}
+#title p{
+    font-family:'Roboto', "sans-serif";
+   position: relative;
+     font-size: 20pt;
+     color:white;
+     margin: auto;
+     letter-spacing: 3px;
+}

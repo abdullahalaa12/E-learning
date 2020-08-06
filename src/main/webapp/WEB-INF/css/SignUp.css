@@ -1,0 +1,203 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: -moz-linear-gradient(-45deg,  #d6a2e8 0%, rgb(44,58,71) 100%); /* FF3.6+ */
+    background: -webkit-linear-gradient(-45deg,  #d6a2e8 0%,rgb(44,58,71) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #d6a2e8 0%,rgb(44,58,71) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #d6a2e8 0%,rgb(44,58,71) 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #d6a2e8 0%,rgb(44,58,71) 100%); /* W3C */ 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6a2e8', endColorstr='rgb(44,58,71)',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background-attachment: fixed;  
+    background-size: cover;
+    background-position: center top;
+    position: absolute;
+}
+.form{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 30px auto;
+    background-color: white;
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    overflow: hidden;
+    border-top: 5px solid #D6A2E8;
+    border-left: 5px solid #D6A2E8;
+    border-radius: 50px;
+   
+}
+.form #logo{
+    left:30%;
+    top: 10%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    height: 150px;
+    width: 200px;
+
+}
+.form #photo-container
+{
+
+    left: 50%;
+    top:10%;
+    margin-top: 50px;
+    transform: translate(-50%,-50%);
+    position: relative;
+    height: 300px;
+    width: 250px;
+    overflow: hidden;
+}
+.form #photo-container #image
+{
+    
+    border-radius: 100px;
+    left: 50%;
+    top:30%;
+    margin-top: 50px;
+    transform: translate(-50%,-50%);
+    position: relative;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+
+}
+.form #photo-container #AddPhoto-btn
+{
+    display: none;
+}
+.form #photo-container #AddPhoto-label
+{
+ 
+    position: absolute;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    top:95%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    font-family: 'Alfa Slab One', cursive;
+    font-family:'Roboto', "sans-serif";
+    color: white;
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    transition: 0.5s;
+    background-size: 200%;
+    outline: none;    
+
+}
+.form #info-container
+{
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    width: 800px;
+    height: 700px;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    align-content: center;
+    justify-content: center;
+    place-items: center;
+}
+.form #info-container label
+{
+    color:#2C3A47;
+    font-size:12pt;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+.form #info-container #Nationality-div{
+    width: 350px;
+    height: 50px;
+    margin-top: 80px;
+    text-align: center;
+}
+.form #info-container div select{
+    margin-top: 5px;
+}
+.form #info-container #Birthday-div
+{
+    width: 210px;
+    height: 50px;
+    margin-top: 80px;
+    text-align: center;
+}
+.form #info-container #Birthday-div select
+{
+    margin-right: 15px;
+}
+#Dy
+{
+ transform: translate(-50%,-50%);
+ left: -15%;
+ position: relative;   
+}
+#Mo{
+    transform: translate(-50%,-50%);
+    left: -5%;
+    position: relative;
+}
+#Yr{
+    transform: translate(-50%,-50%);
+    left: -1%;
+    position: relative;
+}
+.form #info-container #Gender-div
+{
+    width: 100px;
+    height: 50px;
+    margin-top: 80px;
+    text-align: center;
+}
+.form #info-container #Status-div
+{
+    width: 100px;
+    height: 50px;
+    margin-top: 80px;
+    text-align: center;
+}
+.form #info-container div{
+    float: left;
+    margin-right: 10px;
+}
+.form #info-container #Register-btn
+{
+    display: block;
+    border: none;
+    color: white;
+    font-family: 'Alfa Slab One', cursive;
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    border-radius: 30px;
+    position: absolute;
+    margin: auto;
+    top: 60%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: 200%;
+    outline: none;    
+}
+.form #info-container #Register-btn:hover,.form #photo-container #AddPhoto-label:hover
+{
+    background-position: bottom;
+
+}
+::-webkit-input-placeholder
+{
+    color:#aaa69d;
+    font-size:12pt;
+    font-family: 'Roboto', sans-serif;
+    opacity: 90%;
+}
