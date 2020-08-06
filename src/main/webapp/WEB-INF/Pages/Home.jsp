@@ -75,6 +75,6 @@
         </div>
         <footer class="footer"></footer>
     </div>
-    <script src="/WEB-INF/js/Script.js"></script>
+    <script src="/resources/js/Script.js"></script>
 </body>
 </html>
