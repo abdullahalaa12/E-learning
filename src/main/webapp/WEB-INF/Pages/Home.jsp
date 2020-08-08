@@ -23,8 +23,8 @@
     <div id="Page-Content">
         <div id="navb">
             <div id="shadow">
-              <a href="file:///D:/Web/Online%20Coursera/Login.html"><button class="ToLoginPage-btn" id="Lo" title="Login"><strong>Get Started</strong></button></a>
-              <a href="file:///D:/Web/Online%20Coursera/Login.html"><button class="ToRegisterPage-btn" id="Re" onmousemove="Showbtn()"><strong><i class="fas fa-user-plus"></i></strong>&nbsp;</button></a>
+              <form action="/login" method="get"><button class="ToLoginPage-btn" id="Lo" title="Login"><strong>Get Started</strong></button></form>
+              <form action="/Register" method="get"><button class="ToRegisterPage-btn" id="Re" onmousemove="Showbtn()"><strong><i class="fas fa-user-plus"></i></strong>&nbsp;</button></form>
                 <div id="title">
                     <header>Online Coursera</header>
                     <p>The Way To Success</p>

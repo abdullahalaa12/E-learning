@@ -32,7 +32,7 @@
                 <button id="eye-visible" onclick="hidePass()"><i class="far fa-eye"></i></button>
                 <button id="eye-hide" onclick="showPass()"><i class="far fa-eye-slash"></i></button>
                 <a href="#" class="Forget">Forget Password ?</a>
-                <a href="file:///D:/Web/OOP%20Online%20Coursera/SignUp.html"><button class="Signup">Sign Up</button></a>
+                <form action="/Register" method="get"><button class="Signup">Sign Up</button></form>
             </div>
             <button class="login">Login</button>
             <div class="media">
@@ -54,7 +54,7 @@
 <script>
     window.onload = function()
     {
-        $(".load-page").fadeOut(5000);
+        $(".load-page").fadeOut(2000);
     }
     function showPass(){
 
