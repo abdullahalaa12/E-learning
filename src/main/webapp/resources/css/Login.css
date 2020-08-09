@@ -242,9 +242,15 @@ body
     font-family: 'Roboto', sans-serif;
     opacity: 90%;
 }
-.page .Big .container .left-form .login-form #input-field1,#input-field2
+.page .Big .container .left-form .login-form .loginform{
+    width: 300px;
+    height: 200px;
+    top: 8%;
+    position: relative;
+}
+.page .Big .container .left-form .login-form .loginform  #input-field1,#input-field2
 {
-    margin: 5px;
+    margin-top: 5px;
     display: block;
     color: #2C3A47;
     width: 300px;
@@ -255,9 +261,7 @@ body
     border-left: none;
     border-bottom:3px solid #2C3A47;
     border-right: none;
-    text-align: center;
     font-size: 15px;
-    font-family: 'Alfa Slab One', cursive;
     transition: 0.25s;
     text-align: left;
     font-family: 'Roboto', sans-serif;

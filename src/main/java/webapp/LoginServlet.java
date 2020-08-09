@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet{
 		}
 		else
 		{
-			request.setAttribute("ErrorMsg","Invalid Username/passwor !!");
+			request.setAttribute("ErrorMsg","Invalid Username/password !!");
 			request.getRequestDispatcher("/WEB-INF/Pages/Login.jsp").forward(request, response);
 		}
 		System.out.println("Post is called");

@@ -27,8 +27,10 @@
                 <div class="profile-pic">
                     <img src="/resources/images/pf.svg">
                 </div>
+                <form class="loginform">
                 <input id="input-field1" type="text" placeholder="Username"><br>
                 <input id="input-field2" type="password" placeholder="Password">
+                </form>  
                 <button id="eye-visible" onclick="hidePass()"><i class="far fa-eye"></i></button>
                 <button id="eye-hide" onclick="showPass()"><i class="far fa-eye-slash"></i></button>
                 <a href="#" class="Forget">Forget Password ?</a>
