@@ -209,7 +209,7 @@ body
     border-radius: 30px;
     position: absolute;
     margin: auto;
-    top: 45%;
+    top: 35%;
     bottom: 0;
     left: 65%;
     right: 0;
@@ -228,7 +228,7 @@ body
     border-radius: 30px;
     position: absolute;
     left: 85%;
-    top: 55%;
+    top: 50%;
     cursor: pointer;
   
 }
@@ -244,11 +244,11 @@ body
 }
 .page .Big .container .left-form .login-form .loginform{
     width: 300px;
-    height: 200px;
-    top: 8%;
+    height: 300px;
+    top: 5%;
     position: relative;
 }
-.page .Big .container .left-form .login-form .loginform  #input-field1,#input-field2
+.page .Big .container .left-form .login-form  #input-field1,#input-field2
 {
     margin-top: 5px;
     display: block;
@@ -273,7 +273,7 @@ body
     text-decoration: none;
     color:#aaa69d;
     position: absolute;
-    top: 70%;
+    top: 65%;
 }
 .login-form .Forget:hover{
     text-decoration: underline;

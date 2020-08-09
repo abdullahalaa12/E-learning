@@ -18,6 +18,7 @@
 </head>
 <body>
         <div class="form">
+        <form>
             <div id="photo-container">
                 <label for="file" id="AddPhoto-label" onclick="AddPhoto()"><i class="material-icons">
                     add_photo_alternate
@@ -26,14 +27,12 @@
                 <img src="/resources/images/pf.svg" alt="" id="image">
             </div>
             <div id="info-container">
-            <form>
             <input id="input-field1" type="text" placeholder="First Name">
             <input id="input-field2" type="text" placeholder="Last Name"><br>
             <input id="input-field3" type="password" placeholder="Password">
             <input id="input-field4" type="password" placeholder="Re-Password"><br>
             <input id="input-field5" type="text" placeholder="Email">
             <input id="input-field6" type="text" placeholder="Phone"><br>
-            </form>
             <div id="Nationality-div">
             <label id="Nationality">Nationality</label><br>
             <select id="country-box" name="country" class="form-control">
@@ -307,6 +306,7 @@
             <button onclick="" id="Register-btn">Register</button>
            
         </div>
+        </form>
         </div>
         <script src="/resources/js/Script.js"></script>
         <script>

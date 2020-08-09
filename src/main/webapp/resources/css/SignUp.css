@@ -46,7 +46,7 @@ body{
     top:10%;
     margin-top: 50px;
     transform: translate(-50%,-50%);
-    position: relative;
+    position: absolute;
     height: 300px;
     width: 250px;
     overflow: hidden;
