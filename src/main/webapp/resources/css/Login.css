@@ -209,9 +209,9 @@ body
     border-radius: 30px;
     position: absolute;
     margin: auto;
-    top: 35%;
+    top: 25%;
     bottom: 0;
-    left: 65%;
+    left: 35%;
     right: 0;
     width: 100px;
     height: 20px;
@@ -221,14 +221,14 @@ body
     font-size: 15px;
 
 }
-.page .Big .container .left-form .login-form #eye-hide,#eye-visible {
+.page .Big .container .left-form #eye-hide,#eye-visible {
     display: block;
     border: none;
     background: transparent;
     border-radius: 30px;
     position: absolute;
-    left: 85%;
-    top: 50%;
+    left: 70%;
+    top: 56%;
     cursor: pointer;
   
 }

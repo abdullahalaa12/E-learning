@@ -30,13 +30,13 @@
                 <form class="loginform">
                 <input id="input-field1" type="text" placeholder="Username"><br>
                 <input id="input-field2" type="password" placeholder="Password">
-                <button id="eye-visible" onclick="hidePass()"><i class="far fa-eye"></i></button>
-                <button id="eye-hide" onclick="showPass()"><i class="far fa-eye-slash"></i></button>
                 <a href="#" class="Forget">Forget Password ?</a>
-                <form action="/Register" method="get"><button class="Signup">Sign Up</button></form>
             </div>
             <button class="login">Login</button>
-            </form>  
+            </form>
+            <button id="eye-visible" onclick="hidePass()"><i class="far fa-eye"></i></button>
+            <button id="eye-hide" onclick="showPass()"><i class="far fa-eye-slash"></i></button>
+            <form action="/Register" method="get"><button class="Signup">Sign Up</button></form>
             <div class="media">
                 <a href="#" class="m1"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="m2"><i class="fab fa-twitter"></i></a>

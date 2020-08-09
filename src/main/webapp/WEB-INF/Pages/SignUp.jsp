@@ -304,7 +304,6 @@
                 </select>
             </div>
             <button onclick="" id="Register-btn">Register</button>
-           
         </div>
         </form>
         </div>
