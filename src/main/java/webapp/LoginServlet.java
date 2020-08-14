@@ -26,15 +26,17 @@ import javax.servlet.http.Part;
 public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/Login.jsp").forward(request, response);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		User data1=new Student("abdullah","123");
 		request.getSession().setAttribute("username", data1);
+		request.getSession().setAttribute("aa", data1);
 		System.out.println("testhaha");
-		response.sendRedirect("Register");
+		System.out.println("test");
+		response.sendRedirect("Main");
 		
 		/*InputStream FileStream=null;
 		Part FilePart=request.getPart("photo");

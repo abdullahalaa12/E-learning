@@ -26,29 +26,29 @@
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.2</version>
-					<configuration>
-						<verbose>true</verbose>
-						<source>1.7</source>
-						<target>1.7</target>
-						<showWarnings>true</showWarnings>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.2</version>
-					<configuration>
-						<path>/</path>
-						<contextReloadable>true</contextReloadable>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.2</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                        <showWarnings>true</showWarnings>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <path>/</path>
+                        <contextReloadable>true</contextReloadable>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
