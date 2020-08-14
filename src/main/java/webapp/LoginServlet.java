@@ -24,14 +24,18 @@ import javax.servlet.http.Part;
 @WebServlet(urlPatterns = "/login")
 //@MultipartConfig(maxFileSize = 16177215)
 public class LoginServlet extends HttpServlet{
-	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		request.getRequestDispatcher("/WEB-INF/Pages/Welcome.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		User data1=new Student("abdullah","123");
+		request.getSession().setAttribute("username", data1);
+		System.out.println("testhaha");
+		response.sendRedirect("Register");
+		
 		/*InputStream FileStream=null;
 		Part FilePart=request.getPart("photo");
 		if (FilePart != null) {
@@ -75,7 +79,7 @@ public class LoginServlet extends HttpServlet{
             
 			Statement st=conn.createStatement();
 			ResultSet rs=st.executeQuery("select * from Video");
-			for(int i=0;i<6;i++) rs.next();
+			for(int i=0;i<9;i++) rs.next();
 			
 			Blob blob = rs.getBlob("File");
 			InputStream inputStream = blob.getBinaryStream();
@@ -86,7 +90,7 @@ public class LoginServlet extends HttpServlet{
 			while ((bytesRead = inputStream.read(buffer)) != -1) {
 			    outputStream.write(buffer, 0, bytesRead);
 			}
-			 
+			
 			byte[] imageBytes = outputStream.toByteArray();
 			 
 			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
@@ -97,8 +101,7 @@ public class LoginServlet extends HttpServlet{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}*/
-		
-			try {
+			/*try {
     	   	
     	   	String DataBaseURL = "jdbc:sqlserver://localhost:1433;databaseName=testdb;integratedSecurity=true;";
     	   	Connection conn= DriverManager.getConnection(DataBaseURL);
@@ -128,7 +131,7 @@ public class LoginServlet extends HttpServlet{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 			
 			
 		/*String name=request.getParameter("name");

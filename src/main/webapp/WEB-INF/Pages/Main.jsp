@@ -12,9 +12,9 @@
 <!--  Enter name: <input name="name" type="text"><br>
 Enter password: <input name="password" type="password"><br>-->
 
-Enter file: <input name="photo" type="file" accept=".pdf" size="50"><br>
+Enter file: <input name="photo" type="file" size="50"><br>
 <input type="submit" value="Login">
 </form>
-
+<a href="/Register">sign up</a>
 </body>
 </html>
