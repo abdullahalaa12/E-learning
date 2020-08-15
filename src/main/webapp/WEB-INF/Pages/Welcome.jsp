@@ -4,11 +4,9 @@
 <title>Welcome</title>
 </head>
 <body>
-<h1>Successfully login<br>
-Welcome ${name }!<br>
-Your password is ${password }
-<br>test git
-<br>Welcome tarek ;)
-</h1>
+<video width="600" height="400" id="addVideo" controls autoplay>
+    <source src="data:video/x-msvideo;base64,${photo} "/>
+</video>
+<form action="/Register" method="post"><input type="submit" value="submit"></form>
 </body>
 </html>

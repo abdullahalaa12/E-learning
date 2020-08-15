@@ -7,7 +7,7 @@
 	<display-name>Coursera</display-name>
 
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/Pages/Main.jsp</welcome-file>
+		<welcome-file>/WEB-INF/Pages/Home.jsp</welcome-file>
 	</welcome-file-list>
 
 </web-app>
