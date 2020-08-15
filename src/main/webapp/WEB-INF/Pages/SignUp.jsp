@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -18,24 +19,24 @@
 </head>
 <body>
         <div class="form">
-        <form>
+        <form action="Register" method="post" enctype="multipart/form-data">
             <div id="photo-container">
                 <label for="file" id="AddPhoto-label" onclick="AddPhoto()"><i class="material-icons">
                     add_photo_alternate
                 </i> &nbsp; Upload Photo</label>
-                <input type="file" value="Add Photo" id="AddPhoto-btn" accept="image/*" onchange="loadFile(event)">
+                <input name="Photo" type="file" value="Add Photo" id="AddPhoto-btn" accept="image/*" onchange="loadFile(event)">
                 <img src="/resources/images/pf.svg" alt="" id="image">
             </div>
             <div id="info-container">
-            <input id="input-field1" type="text" placeholder="First Name">
-            <input id="input-field2" type="text" placeholder="Last Name"><br>
-            <input id="input-field3" type="password" placeholder="Password">
+            <input name="FirstName" id="input-field1" type="text" placeholder="First Name">
+            <input name="LastName" id="input-field2" type="text" placeholder="Last Name"><br>
+            <input name="Password" id="input-field3" type="password" placeholder="Password">
             <input id="input-field4" type="password" placeholder="Re-Password"><br>
-            <input id="input-field5" type="text" placeholder="Email">
-            <input id="input-field6" type="text" placeholder="Phone"><br>
+            <input name="Email" id="input-field5" type="text" placeholder="Email">
+            <input name="Phone" id="input-field6" type="text" placeholder="Phone"><br>
             <div id="Nationality-div">
             <label id="Nationality">Nationality</label><br>
-            <select id="country-box" name="country" class="form-control">
+            <select name="Nationality" id="country-box"  class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -285,9 +286,21 @@
             <Label id="Dy">Day</Label>
             <label id="Mo">Month</label>
             <Label id="Yr">Year</Label><br>
-            <select id="days"></select>
-            <select id="months"></select>
-            <select id="years"></select>
+            <select name="BirthDay" id="days">
+           		<c:forEach var = "i" begin = "1" end = "31">
+        			<option value="${i }">${i }</option>
+     	 		</c:forEach>
+     	 	</select>
+            <select name="BirthMonth" id="months">
+           		<c:forEach var = "i" begin = "1" end = "12">
+        			<option value="${i }">${i }</option>
+     	 		</c:forEach>
+     	 	</select>
+            <select name="BirthYear" id="years">
+           		<c:forEach var = "i" begin = "1900" end = "2020">
+        			<option value="${i }">${i }</option>
+     	 		</c:forEach>
+     	 	</select>
             </div>
             <div id="Gender-div">
                 <Label>Gender</Label><br>
@@ -298,7 +311,7 @@
             </div>
             <div id="Status-div">
                 <label>Status</label>
-                <select id="Status-select">
+                <select name="TypeOfUser" id="Status-select">
                     <option value="Student">Student</option>
                     <option value="Instructor">Instructor</option>
                 </select>
