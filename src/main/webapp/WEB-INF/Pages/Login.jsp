@@ -28,8 +28,8 @@
                     <img src="/resources/images/pf.svg">
                 </div>
                 <form class="loginform" action="login" method="post">
-                <input id="input-field1" type="text" placeholder="Username"><br>
-                <input id="input-field2" type="password" placeholder="Password">
+                <input name="name" id="input-field1" type="text" placeholder="Username"><br>
+                <input name="password" id="input-field2" type="password" placeholder="Password">
                 <a href="#" class="Forget">Forget Password ?</a>
             </div>
             <button class="login">Login</button>

@@ -31,11 +31,11 @@ public class LoginServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		User data1=new Student("abdullah","123");
+		String name=request.getParameter("name");
+		String password=request.getParameter("password");
+
+		User data1=new Student(name,password);
 		request.getSession().setAttribute("username", data1);
-		request.getSession().setAttribute("aa", data1);
-		System.out.println("testhaha");
-		System.out.println("test");
 		response.sendRedirect("Main");
 		
 		/*InputStream FileStream=null;
