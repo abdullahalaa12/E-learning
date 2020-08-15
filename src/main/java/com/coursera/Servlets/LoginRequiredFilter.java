@@ -23,6 +23,7 @@ public class LoginRequiredFilter implements Filter{
 		  
 		  if(request.getSession().getAttribute("Member")==null)
 		  {
+			  request.setAttribute("Message", "You must login!");
 			  request.getRequestDispatcher("/login").forward(servletRequest, servletResponse);
 		  }
 		  else

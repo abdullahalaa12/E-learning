@@ -82,7 +82,6 @@ public abstract class User
 
 
 	public String getBirthdate() {
-		System.out.println(Birthdate.getYear());
 		return Birthdate.toString();
 	}
 
@@ -152,6 +151,8 @@ public abstract class User
 	
 	public abstract String getUserType();
 }
+
+
 class Student extends User
 {
 	public Student(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
@@ -167,6 +168,8 @@ class Student extends User
 		return "Student";
 	}
 }
+
+
 class Instructor extends User
 {
 	public Instructor(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
