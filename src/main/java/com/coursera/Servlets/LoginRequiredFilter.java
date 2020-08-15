@@ -1,4 +1,4 @@
-package webapp;
+package com.coursera.Servlets;
 
 import javax.servlet.Filter;
 import javax.servlet.annotation.WebFilter;
@@ -21,8 +21,9 @@ public class LoginRequiredFilter implements Filter{
 	  {
 		  HttpServletRequest request=(HttpServletRequest)servletRequest;
 		  
-		  if(request.getSession().getAttribute("username")==null)
+		  if(request.getSession().getAttribute("Member")==null)
 		  {
+			  request.setAttribute("Message", "You must login!");
 			  request.getRequestDispatcher("/login").forward(servletRequest, servletResponse);
 		  }
 		  else

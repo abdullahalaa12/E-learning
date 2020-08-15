@@ -1,4 +1,4 @@
-package webapp;
+package com.coursera.Servlets;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
