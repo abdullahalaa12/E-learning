@@ -4,18 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>
-            $(document).on("click", "#coursesbutton", function() {
-                $.get("/Main/Courses");
-            });
-            $(document).on("click", "#announcementsbutton", function() {
-                $.get("/Main/Announcement");
-            });
-            $(document).on("click", "#gradesbutton", function() {
-                $.get("/Main/Grades");
-            });
-        </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Student.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -41,11 +29,11 @@
        <div class="Dashboard_btn PageButtons" onclick="ShowContent(1)" onclick="MenubtnFocused('Dashboard_btn')" onmousemove="MenubtnIn('Dashboard_btn')" onmouseout="MenubtnOut('Dashboard_btn')"><label for="Dashboard_btn"><i class="fas fa-tachometer-alt"></i>&nbsp;Dashboard</label></div>
        <div class="divider divider2"></div>
        <div class="Courses_btn PageButtons" onclick="ShowContent(3)" onclick="MenubtnFocused('Courses_btn')" onmousemove="MenubtnIn('Courses_btn')" onmouseout="MenubtnOut('Courses_btn')"><label for="Courses_btn"><i class="fas fa-user"></i>&nbsp;Profile</label></div>
-      <div class="Profile_btn PageButtons" onclick="ShowContent(2)" onmousemove="MenubtnIn('Profile_btn')" onmouseout="MenubtnOut('Profile_btn')"> <a id="coursesbutton"><label for="Profile_btn"><i class="fas fa-book-open"></i>&nbsp;Courses</label></a></div>
-       <div class="Announcements_btn PageButtons" onclick="ShowContent(4)" onmousemove="MenubtnIn('Announcements_btn')" onmouseout="MenubtnOut('Announcements_btn')"><a id="announcementsbutton"><label for="Announcements_btn"><i class="fas fa-bell"></i>&nbsp; Announcements</label></a></div>
-       <div class="Grades_btn PageButtons" onclick="ShowContent(5)" onmousemove="MenubtnIn('Grades_btn')" onmouseout="MenubtnOut('Grades_btn')"><a id="gradesbutton"><label for="Grades_btn"><i class="fas fa-pen"></i>&nbsp;Grades</label></a></div>
+       <div class="Profile_btn PageButtons" onclick="ShowContent(2)" onmousemove="MenubtnIn('Profile_btn')" onmouseout="MenubtnOut('Profile_btn')"><label for="Profile_btn"><i class="fas fa-book-open"></i>&nbsp;Courses</label></div>
+       <div class="Announcements_btn PageButtons" onclick="ShowContent(4)" onmousemove="MenubtnIn('Announcements_btn')" onmouseout="MenubtnOut('Announcements_btn')"><label for="Announcements_btn"><i class="fas fa-bell"></i>&nbsp; Announcements</label></div>
+       <div class="Grades_btn PageButtons" onclick="ShowContent(5)" onmousemove="MenubtnIn('Grades_btn')" onmouseout="MenubtnOut('Grades_btn')"><label for="Grades_btn"><i class="fas fa-pen"></i>&nbsp;Grades</label></div>
        <div class="divider divider3"></div>
-       <div class="Logout_btn PageButtons" onmousemove="MenubtnIn('Logout_btn')" onmouseout="MenubtnOut('Logout_btn')"><a href="logout"><label for="Logout_btn"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</label></a></div>
+       <div class="Logout_btn PageButtons" onmousemove="MenubtnIn('Logout_btn')" onmouseout="MenubtnOut('Logout_btn')"><label for="Logout_btn"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</label></div>
    </div>
    <div id="Page-Content">
        <div id="Bar">
@@ -61,7 +49,6 @@
                <div class="userBox">
                 <p>${Member.getFullname() }</p>
                 <div class="userImg"></div>
-                	<img src="data:image/jpg;base64,${Member.getPhoto()}" />
                </div>
                </div>
            </div>
@@ -70,8 +57,7 @@
        <div id="Courses" class="page"></div>
        <div id="Profile" class="page">
            <div class="ProPho-Background">
-           		
-               <div class="Blured"><img src="data:image/jpg;base64,${Member.getPhoto()}" /></div>
+               <div class="Blured"></div>
            </div>
            <div class="ProPho">
             <div class="shadow">
@@ -113,7 +99,7 @@
                <div class="divider"></div>
                <div class="GenderBox Box">
                    <Label class="Title">Gender</Label>
-                   <p class="info">${Member.getGender() }</p>
+                   <p class="info">Male</p>
                    <form>
                        <input type="text" name="" id="" placeholder="New Name">
                        <button class="edit"><i class="far fa-edit"></i></button>

@@ -23,8 +23,6 @@ public abstract class User
 	private String Website;
 	private String Gender;
 	private ArrayList<Course> Courses=new ArrayList<Course>();
-	
-	
 	public User(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
 			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender)
 	{
