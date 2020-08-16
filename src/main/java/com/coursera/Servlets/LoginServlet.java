@@ -36,40 +36,6 @@ public class LoginServlet extends HttpServlet{
 			request.setAttribute("Message", "Invalid Email/Password !");
 			request.getRequestDispatcher("/WEB-INF/Pages/Login.jsp").forward(request, response);
 		}
-		
-		
-			
-			/*try {
-    	   	
-    	   	String DataBaseURL = "jdbc:sqlserver://localhost:1433;databaseName=testdb;integratedSecurity=true;";
-    	   	Connection conn= DriverManager.getConnection(DataBaseURL);
-			if (conn != null) {
-				System.out.println("Connected");
-			}
-            
-			Statement st=conn.createStatement();
-			ResultSet rs=st.executeQuery("select * from Video");
-			for(int i=0;i<7;i++) rs.next();
-			
-			Blob blob = rs.getBlob("File");
-			response.setContentType("application/vnd.openxmlformats-officedocument.presentationml.presentation");
-			//response.setHeader("Content-disposition","attachment; filename=" + "Example.pptx" );
-			response.addHeader("Content-Disposition", "attachment; filename=" + "Example.pptx");
-			InputStream inputStream = blob.getBinaryStream();
-			OutputStream outputStream = response.getOutputStream();
-			byte[] buffer = new byte[4096];
-			int bytesRead = -1;
-			 
-			while ((bytesRead = inputStream.read(buffer)) != -1) {
-			    outputStream.write(buffer, 0, bytesRead);
-			}
-			 
-			
-			
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
 			
 	}
 }
