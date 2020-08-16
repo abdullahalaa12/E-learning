@@ -2,6 +2,7 @@ package com.coursera.Service;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 public abstract class User
@@ -20,9 +21,10 @@ public abstract class User
 	private String Joptitle;
 	private String Department;
 	private String Website;
-	
+	private String Gender;
+	private ArrayList<Course> Courses=new ArrayList<Course>();
 	public User(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
-			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website)
+			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender)
 	{
 		this.id=id;
 		this.Email=Email;
@@ -38,6 +40,15 @@ public abstract class User
 		this.Joptitle=Joptitle;
 		this.Department=Department;
 		this.Website=Website;
+		this.Gender=Gender;
+	}
+	
+	public ArrayList<Course> getCourses() {
+		return Courses;
+	}
+
+	public void setCourses(ArrayList<Course> courses) {
+		Courses = courses;
 	}
 
 	public String getEmail() {
@@ -79,8 +90,13 @@ public abstract class User
 	public void setPhone(String phone) {
 		Phone = phone;
 	}
-
-
+	
+	public void setGender(String Gender) {
+		this.Gender = Gender;
+	}
+	public String getGender() {
+		return Gender;
+	}
 	public String getBirthdate() {
 		return Birthdate.toString();
 	}
@@ -156,10 +172,10 @@ public abstract class User
 class Student extends User
 {
 	public Student(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
-			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website)
+			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender)
 	{
 		super(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-				Photo,Educationlevel,Company,Joptitle,Department,Website);
+				Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
 	}
 	
 	@Override
@@ -173,10 +189,10 @@ class Student extends User
 class Instructor extends User
 {
 	public Instructor(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
-			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website)
+			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender)
 	{
 		super(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-				Photo,Educationlevel,Company,Joptitle,Department,Website);
+				Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
 	}
 	
 	@Override

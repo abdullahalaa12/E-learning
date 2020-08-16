@@ -29,5 +29,4 @@ public class MainServlet extends HttpServlet{
 		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
 	}
 	
-	
 }

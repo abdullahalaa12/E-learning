@@ -304,7 +304,7 @@
             </div>
             <div id="Gender-div">
                 <Label>Gender</Label><br>
-                <Select id="Gender-Select">
+                <Select id="Gender-Select" name="Gender">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </Select>
