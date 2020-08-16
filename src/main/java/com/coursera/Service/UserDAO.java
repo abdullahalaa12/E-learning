@@ -54,17 +54,18 @@ public class UserDAO
 				String Joptitle=rs.getString("Joptitle");
 				String Department=rs.getString("Department");
 				String Website=rs.getString("Website");
+				String Gender=rs.getString("Gender");
 				
 				String typeofuser=rs.getString("typeofuser");
 				if(typeofuser.equals("Instructor"))
 				{
 					ReturnedUser=new Instructor(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							Photo,Educationlevel,Company,Joptitle,Department,Website);
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
 				}
 				else
 				{
 					ReturnedUser=new Student(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							Photo,Educationlevel,Company,Joptitle,Department,Website);
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
 				}
 			}
 		} catch (SQLException e){
@@ -75,10 +76,10 @@ public class UserDAO
 	}
 	
 	public boolean Singup(String Email,String Password,String FirstName,String LastName,String Nationality,String Phone,String Birthday,
-			String BirthMonth,String BirthYear,Part Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String TypeOfUser)
+			String BirthMonth,String BirthYear,Part Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String TypeOfUser,String Gender)
 	{
 		short out=-1;
-		String query="{call SignUp(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+		String query="{call SignUp(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 		if(TypeOfUser.equals("Instructor"))
 			Educationlevel=-1;
 		LocalDate Birthdate=LocalDate.of(Integer.parseInt(BirthYear),Integer.parseInt(BirthMonth),Integer.parseInt(Birthday));
@@ -97,10 +98,11 @@ public class UserDAO
 			Call.setNString(11, Department);
 			Call.setNString(12,Website);
 			Call.setString(13,TypeOfUser);
-			Call.registerOutParameter(14, Types.SMALLINT);
+			Call.setString(14,Gender);
+			Call.registerOutParameter(15, Types.SMALLINT);
 			Call.execute();
 			
-			out=Call.getShort(14);
+			out=Call.getShort(15);
 			
 		} catch (SQLException e){
 			e.printStackTrace();	

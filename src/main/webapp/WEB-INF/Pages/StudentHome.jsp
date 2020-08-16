@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import ="com.coursera.Service.User" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"	"http://www.w3.org/TR/html4/loose.dtd">
+        <%@ page import ="com.coursera.Service.User" %>
+        <%@ page import ="com.coursera.Service.UserDAO" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Student.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -16,11 +19,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
-<title>Main</title>
+
+<title>Home</title>
 </head>
 <body>
-<div id="Menu">
+	 <div id="Menu">
        <div class="LogoBox">
        <div class="Logo"></div>
        <p>Online Coursera</p>
@@ -62,6 +65,7 @@
            <div class="ProPho">
             <div class="shadow">
                 <i class="fas fa-camera"></i>
+                <p>Change Photo</p>
             </div>
            </div>
            <div class="info-container">
@@ -70,7 +74,7 @@
                <div class="divider"></div>
                <div class="FullNameBox Box" id="Tata">
                    <Label class="Title">Full Name</Label>
-                   <p class="info">${Member.getFullname() }</p>
+                   <p class="info">Tareq Ahmed Saleh</p>
                     <form action=""><input type="text" name="" id="" placeholder="New Name"></form>
                     <a><button class="edit" onclick="ShowEditFeild('Tata')"><i class="far fa-edit"></i></button></a>
                     <a><button class="cancel" onclick="CancelEditing('Tata')"><i class="fas fa-times"></i></button></a>
@@ -206,20 +210,5 @@
        <div id="Grades" class="page"></div>
    </div>
         <script src="/resources/js/Script.js"></script>
-<!--<img src="data:image/jpg;base64,${Member.getPhoto()}" /><br>
-<p>${Member.getId() }</p><br>
-<p>${Member.getFullname() }</p><br>
-<p>${Member.getPassword() }</p><br>
-<p>${Member.getEmail() }</p><br>
-<p>${Member.getNationality() }</p><br>
-<p>${Member.getPhone() }</p><br>
-<p>${Member.getBirthdate() }</p><br>
-<p>${Member.getAge() }</p><br>
-<p>${Member.getEducationlevel() }</p><br>
-<p>${Member.getCompany() }</p><br>
-<p>${Member.getJoptitle() }</p><br>
-<p>${Member.getDepartment() }</p><br>
-<p>${Member.getWebsite() }</p><br>
-<p>${Member.getUserType() }</p><br>-->
 </body>
 </html>

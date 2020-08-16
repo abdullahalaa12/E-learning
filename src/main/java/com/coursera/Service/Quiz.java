@@ -1,5 +1,6 @@
 package com.coursera.Service;
 
+<<<<<<< HEAD
 public  class Quiz 
 {
 
@@ -84,3 +85,8 @@ public void setChoise(String choise) {
 }
 
 
+=======
+public class Quiz {
+/*Fared Task*/
+}
+>>>>>>> 0e831f432d7e0693d7bde322b6ad23c6e4d64d09

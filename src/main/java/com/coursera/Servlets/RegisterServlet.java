@@ -44,9 +44,11 @@ public class RegisterServlet extends HttpServlet{
 		String Department="Doesn't exist in the signup form";
 		String Website="Doesn't exist in the signup form";
 		String TypeOfUser=request.getParameter("TypeOfUser");
+		String Gender=request.getParameter("Gender");
+
 		
 		boolean valid=DAO.Singup(Email, Password, FirstName, LastName, Nationality, Phone, BirthDay,
-				BirthMonth,BirthYear,Photo, Educationlevel, Company, Joptitle, Department, Website, TypeOfUser);
+				BirthMonth,BirthYear,Photo, Educationlevel, Company, Joptitle, Department, Website, TypeOfUser,Gender);
 		if(valid==true)
 		{
 			System.out.println("Registerd");
