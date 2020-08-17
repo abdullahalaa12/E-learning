@@ -68,10 +68,19 @@
                </div>
            </div>
        </div>
-       <div id="Dashboard" class="page"></div>
+       <div id="Dashboard" class="page">
+       </div>
        <div id="Courses" class="page">   
   		<c:forEach items="${Member.getCourses()}" var="course">
-				<p>course.getName()</p>
+				<div class="CourseBox">
+				<p>${course.getCourseID()}</p><br>
+				<p>${course.getName()}</p>
+				<form action="Login" method="post" enctype="multipart/form-data">
+				<input value="Enroll" name="FunctionType">
+				<input value="${course.getCourseID()}" name="CourseID">
+				<button>Enroll</button>
+				</form>
+				</div>
 			</c:forEach>
        </div>
        <div id="Profile" class="page">
