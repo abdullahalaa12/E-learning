@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%@ page import ="com.coursera.Service.User" %>
+    <%@ page import ="com.coursera.Service.Course" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -68,9 +70,9 @@
        </div>
        <div id="Dashboard" class="page"></div>
        <div id="Courses" class="page">   
-  		<c:forEach items="${courses}" var="course">
-     	<p>${course.getCourseID() }</p>>
-  		</c:forEach>
+  		<c:forEach items="${Member.getCourses()}" var="course">
+				<p>course.getName()</p>
+			</c:forEach>
        </div>
        <div id="Profile" class="page">
            <div class="ProPho-Background">

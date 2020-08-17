@@ -22,11 +22,11 @@ public abstract class User
 	private String Department;
 	private String Website;
 	private String Gender;
-	private ArrayList<Course> Courses=new ArrayList<Course>();
+	private ArrayList<Course> Courses;
 	
 	
 	public User(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
-			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender)
+			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender,ArrayList<Course> Courses)
 	{
 		this.id=id;
 		this.Email=Email;
@@ -43,6 +43,7 @@ public abstract class User
 		this.Department=Department;
 		this.Website=Website;
 		this.Gender=Gender;
+		this.Courses=Courses;
 	}
 	
 	public ArrayList<Course> getCourses() {
@@ -174,10 +175,10 @@ public abstract class User
 class Student extends User
 {
 	public Student(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
-			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender)
+			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender,ArrayList<Course> Courses)
 	{
 		super(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-				Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
+				Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,Courses);
 	}
 	
 	@Override
@@ -191,10 +192,10 @@ class Student extends User
 class Instructor extends User
 {
 	public Instructor(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
-			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender)
+			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender,ArrayList<Course> Courses)
 	{
 		super(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-				Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
+				Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,Courses);
 	}
 	
 	@Override
