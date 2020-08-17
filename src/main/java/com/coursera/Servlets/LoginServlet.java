@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.coursera.Service.Course;
+
 import com.coursera.Service.User;
 import com.coursera.Service.UserDAO;
 

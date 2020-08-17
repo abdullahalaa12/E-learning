@@ -56,17 +56,16 @@ public class UserDAO
 				String Department=rs.getString("Department");
 				String Website=rs.getString("Website");
 				String Gender=rs.getString("Gender");
-				ArrayList<Course> Courses=ShowCourses(id);
 				String typeofuser=rs.getString("typeofuser");
 				if(typeofuser.equals("Instructor"))
 				{
 					ReturnedUser=new Instructor(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,Courses);
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,ShowCourses(id));
 				}
 				else
 				{
 					ReturnedUser=new Student(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,Courses);
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,ShowCourses(id));
 				}
 			}
 		} catch (SQLException e){
@@ -173,10 +172,7 @@ public class UserDAO
 		} catch (SQLException e){
 			e.printStackTrace();	
 		}
-		for(int i=0;i<Courses.size();i++)
-		{
-			System.out.println(Courses.get(i).getName() + "\t" + Courses.get(i).getCourseID() + Courses.get(i).getField());
-		}
+		
 		
 		return Courses;
 		
