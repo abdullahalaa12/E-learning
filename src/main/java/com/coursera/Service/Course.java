@@ -17,7 +17,7 @@ public class Course {
 	private int NumberOfStudents;
 	private int NumberOfInstructors;
 	
-	public Course(int CourseIDs,String Name,String Field,Date StartDate,Date EndDate,Date Duration,int NumberOfStudents,int NumberOfInstructors){
+	public Course(int CourseID,String Name,String Field,Date StartDate,Date EndDate,Date Duration,int NumberOfStudents,int NumberOfInstructors){
 		NumberOfCourses+=1;
 		this.CourseID=CourseID;
 		this.Name=Name;

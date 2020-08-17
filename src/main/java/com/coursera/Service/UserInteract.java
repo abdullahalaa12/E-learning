@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class UserInteract {
 	
@@ -24,7 +25,7 @@ public class UserInteract {
 	}
 	public void AddCourse(int CourseID,String Name,String Field,Date StartDate,Date EndDate,Date Duration) {}
 	public void DeleteCourse() {}
-	public void ShowCourses(User user) {
+	public ArrayList<Course> ShowCourses(User user) {
 		
 		String query="{call ShowCourses(?)}";
 		try {
@@ -32,7 +33,7 @@ public class UserInteract {
 			Call.setInt(1,user.getId());
 			Call.execute();
 			ResultSet rs=Call.getResultSet();
-			if(rs.next())
+			while(rs.next())
 			{
 				int Courseid=rs.getInt("courseID");
 				String CourseName=rs.getString("Name");
@@ -49,6 +50,13 @@ public class UserInteract {
 		} catch (SQLException e){
 			e.printStackTrace();	
 		}
+		for(int i=0;i<user.getCourses().size();i++)
+		{
+			System.out.println(user.getCourses().get(i).getName() + "\t" + user.getCourses().get(i).getCourseID() + user.getCourses().get(i).getField());
+		}
+		
+		return user.getCourses();
+		
 		
 	}
 	public void AddSection() {}

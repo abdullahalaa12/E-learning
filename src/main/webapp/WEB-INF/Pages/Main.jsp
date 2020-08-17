@@ -54,7 +54,11 @@
            </div>
        </div>
        <div id="Dashboard" class="page"></div>
-       <div id="Courses" class="page"></div>
+       <div id="Courses" class="page">   
+  		<c:forEach items="${courses}" var="course">
+     	<p>${course.getCourseID() }</p>>
+  		</c:forEach>
+       </div>
        <div id="Profile" class="page">
            <div class="ProPho-Background">
                <div class="Blured"></div>

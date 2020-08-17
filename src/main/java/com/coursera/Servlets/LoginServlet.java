@@ -1,6 +1,7 @@
 package com.coursera.Servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.coursera.Service.Course;
 import com.coursera.Service.User;
 import com.coursera.Service.UserDAO;
+import com.coursera.Service.UserInteract;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet{
@@ -26,6 +29,13 @@ public class LoginServlet extends HttpServlet{
 		UserDAO DAO=new UserDAO();
 		DAO.Connect();
 		User user = DAO.Login(email, password);
+		UserInteract UI = new UserInteract();
+		UI.Connect();
+		ArrayList<Course> courses =	UI.ShowCourses(user);
+		if(courses.size() != 0)
+		{
+			request.setAttribute("Courses", courses);
+		}
 		if(user != null)
 		{
 			request.getSession().setAttribute("Member", user);
