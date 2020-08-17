@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Base64;
 import javax.servlet.http.Part;
 
@@ -55,17 +56,17 @@ public class UserDAO
 				String Department=rs.getString("Department");
 				String Website=rs.getString("Website");
 				String Gender=rs.getString("Gender");
-				
+				ArrayList<Course> Courses=ShowCourses(id);
 				String typeofuser=rs.getString("typeofuser");
 				if(typeofuser.equals("Instructor"))
 				{
 					ReturnedUser=new Instructor(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,Courses);
 				}
 				else
 				{
 					ReturnedUser=new Student(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender);
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,Courses);
 				}
 			}
 		} catch (SQLException e){
@@ -144,4 +145,50 @@ public class UserDAO
 		
 		return Base64Img;
 	}
+	public void AddCourse(int CourseID,String Name,String Field,Date StartDate,Date EndDate,Date Duration) {}
+	public void DeleteCourse() {}
+	public ArrayList<Course> ShowCourses(int userid) {
+		
+		String query="{call ShowCourses(?)}";
+		ArrayList<Course> Courses=new ArrayList<Course>();
+		try {
+			CallableStatement Call=conn.prepareCall(query);
+			Call.setInt(1,userid);
+			Call.execute();
+			ResultSet rs=Call.getResultSet();
+			while(rs.next())
+			{
+				int Courseid=rs.getInt("courseID");
+				String CourseName=rs.getString("Name");
+				String Field=rs.getString("Field");
+				Date StartDate=rs.getDate("StartDate");
+				Date EndDate=rs.getDate("EndDate");
+				Date Duration=rs.getDate("Duration");
+				int NumberOfStudents=rs.getInt("NumberOfStudents");
+				int NumberOfInstructors=rs.getInt("NumberOfInstructors");
+				Course course = new Course(Courseid,CourseName,Field, StartDate, EndDate, Duration,NumberOfStudents,NumberOfInstructors);
+				Courses.add(course);
+				
+			}
+		} catch (SQLException e){
+			e.printStackTrace();	
+		}
+		for(int i=0;i<Courses.size();i++)
+		{
+			System.out.println(Courses.get(i).getName() + "\t" + Courses.get(i).getCourseID() + Courses.get(i).getField());
+		}
+		
+		return Courses;
+		
+		
+	}
+	public void AddSection() {}
+	public void DeleteSection() {}
+	public void ShowSections() {}
+	public void AddFile() {}
+	public void DeleteFile() {}
+	public void ShowFiles() {}
+	public void AddAnnouncement() {}
+	public void DeleteAnnouncement() {}
+	public void ShowAnnouncements() {}
 }
