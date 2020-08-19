@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@ page import ="com.coursera.Service.User" %>
-    <%@ page import ="com.coursera.Service.Course" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,7 +61,7 @@
                <div class="userBox">
                 <p>${Member.getFullname() }</p>
                 <div class="userImg"></div>
-                	<img src="data:image/jpg;base64,${Member.getPhoto()}" />
+                	<img src="${Member.getPhoto()}" />
                </div>
                </div>
            </div>
@@ -75,10 +73,10 @@
 				<div class="CourseBox">
 				<p>${course.getCourseID()}</p><br>
 				<p>${course.getName()}</p>
-				<form action="Login" method="post" enctype="multipart/form-data">
+				<form action="/Main/Course">
 				<input value="Enroll" name="FunctionType">
 				<input value="${course.getCourseID()}" name="CourseID">
-				<button>Enroll</button>
+				<button name="CourseID" value="${course.getCourseID()}">Enroll</button>
 				</form>
 				</div>
 			</c:forEach>
@@ -235,7 +233,7 @@
        <div id="Grades" class="page"></div>
    </div>
         <script src="/resources/js/Script.js"></script>
-<!--<img src="data:image/jpg;base64,${Member.getPhoto()}" /><br>
+<!--<img src="${Member.getPhoto()}" /><br>
 <p>${Member.getId() }</p><br>
 <p>${Member.getFullname() }</p><br>
 <p>${Member.getPassword() }</p><br>
