@@ -1,4 +1,4 @@
-package com.coursera.File;
+package com.coursera.Quiz;
 
 import java.io.IOException;
 
@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/Main/Course/DeleteFile")
-public class DeleteFileServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/Main/Course/DeleteQuiz")
+public class DeleteQuizServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		int FileID=Integer.parseInt(request.getParameter("FileID"));
-		FileDAO dao=new FileDAO();
+		int FileID=Integer.parseInt(request.getParameter("QuizID"));
+		QuizDAO dao=new QuizDAO();
 		dao.Connect();
-		dao.deleteFile(FileID);
+
 		response.sendRedirect("/Main/Course");
 	}
 	
