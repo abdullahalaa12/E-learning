@@ -45,14 +45,13 @@ public class QuizDAO
 			e.printStackTrace();	
 		} 
 	}
-	public void Deletequiz(int course_id , int quiz_id)
+	public void Deletequiz(int quiz_id)
 	{
 		try
 		{
-			String query = "{call Deletequiz(?,?)}";
+			String query = "{call Deletequiz(?)}";
 			CallableStatement Call = conn.prepareCall(query);
 			Call.setInt(1, quiz_id);
-			Call.setInt(2, course_id);
 			Call.execute();
 		}
 		catch (SQLException e)
@@ -62,6 +61,7 @@ public class QuizDAO
 	}
 	public ArrayList<Quiz> getquiz(int course_id)
 	{
+		                    // heap
 		ArrayList<Quiz> Q = new ArrayList<Quiz>();
 		try
 		{
@@ -74,8 +74,9 @@ public class QuizDAO
 			{
 			int q_id = rs.getInt(1);
 		    String title = rs.getString(2);
-			int c_id = rs.getInt(3);
-			Q.add(new Quiz(q_id,title,c_id));	
+		    Quiz q =new Quiz(q_id,title,course_id);
+			Q.add(q);
+			q.setQues(getQuestion(q_id));			
 			}
 			
 		}
@@ -86,6 +87,58 @@ public class QuizDAO
 		return Q;
 	}
 
+	public ArrayList<Question> getQuestion(int quiz_id)
+	{
+		
+		ArrayList<Question> Ques = new ArrayList<Question>();
+		try
+		{
+			String query = "{call getQuestions(?)}";
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, quiz_id);
+			Call.execute();
+			ResultSet rs = Call.getResultSet();
+			while(rs.next())
+			{
+				int Question_id = rs.getInt(1);
+				String Question_name = rs.getString(2);
+				Question q = new Question(Question_id,Question_name,quiz_id);
+				Ques.add(q);
+				q.setCh(getchoise(Question_id));
+				
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return Ques; 
+	}
+	public ArrayList<Choise> getchoise(int Question_id)
+	{
+		ArrayList<Choise> ch = new ArrayList<Choise>();
+		try
+		{
+			String query = "{call getchoise(?)}";
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, Question_id);
+			Call.execute();
+			ResultSet rs = Call.getResultSet();
+			while(rs.next())
+			{
+				int choise_id = rs.getInt(1);
+				String choise = rs.getString(3);
+				boolean iscorrect = rs.getBoolean(4);
+				ch.add(new Choise(choise_id,choise,Question_id,iscorrect));
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return ch;
+	}
 	public void addQuestion(int quizid , String  question , String ch1 , String ch2  ,  String ch3 ,  String ch4  , int correct_index)
 	{
 	String query = "{call add_question(?,?,?,?,?,?,?)}";
