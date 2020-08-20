@@ -11,8 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Base64;
 import javax.servlet.http.Part;
+
+import com.coursera.File.File;
 
 public class QuizDAO 
 {
@@ -28,19 +31,61 @@ public class QuizDAO
 			e.printStackTrace();	
 		}
 	}
-	public void makequiz(String title)
+	public void Addquiz(String title , int course_id)
 	{
-		String query = "{call makequiz(?)}";
 		try
 		{
+			String query = "{call Addquiz(?,?)}";
 			CallableStatement Call=conn.prepareCall(query);
 			Call.setString(1,title);
+			Call.setInt(2,course_id);
 			Call.execute();
 		}
 		catch (SQLException e){
 			e.printStackTrace();	
 		} 
 	}
+	public void Deletequiz(int course_id , int quiz_id)
+	{
+		try
+		{
+			String query = "{call Deletequiz(?,?)}";
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, quiz_id);
+			Call.setInt(2, course_id);
+			Call.execute();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public ArrayList<Quiz> getquiz(int course_id)
+	{
+		ArrayList<Quiz> Q = new ArrayList<Quiz>();
+		try
+		{
+			String query = "{call getquiz(?)}";
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, course_id);
+			Call.execute();
+			ResultSet rs=Call.getResultSet();
+			while(rs.next())
+			{
+			int q_id = rs.getInt(1);
+		    String title = rs.getString(2);
+			int c_id = rs.getInt(3);
+			Q.add(new Quiz(q_id,title,c_id));	
+			}
+			
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return Q;
+	}
+
 	public void addQuestion(int quizid , String  question , String ch1 , String ch2  ,  String ch3 ,  String ch4  , int correct_index)
 	{
 	String query = "{call add_question(?,?,?,?,?,?,?)}";
@@ -61,6 +106,18 @@ public class QuizDAO
 	} 
 
 	}
-	
-
+	public void deleteQuestion(int question_id)
+	{
+		try
+		{
+		String query = "{call deletequestion(?)}";
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1,question_id);
+		Call.execute();
+		}
+		catch (SQLException e)
+		{
+		e.printStackTrace();
+		}
+	}
 }

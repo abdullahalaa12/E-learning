@@ -3,31 +3,28 @@ package com.coursera.Quiz;
 
 public  class Quiz 
 {
-
-private final int id;
-private String name;
-private Question [] Q;
-
-public Quiz(int id , String name )
-{
-	this.id = id;
-	this.name =  name;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public int getId() {
-	return id;
-}
-public Question [] getQ() {
-	return Q;
-}
-public void setQ(Question [] q) {
-	Q = q;
-}
+	private final int course_id;
+	private final int quiz_id;
+	private String title;
+	
+	public Quiz(int course_id, String title  , int quiz_id)
+	{
+		this.course_id = course_id;
+		this.quiz_id = quiz_id;
+		this.title = title;
+	}
+	public int getCourse_id() {
+		return course_id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public int getQuiz_id() {
+		return quiz_id;
+	}
 }
 
 class Question
