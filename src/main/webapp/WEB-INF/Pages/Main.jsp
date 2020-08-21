@@ -6,7 +6,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script>
-            $(document).on("click", "#coursesbutton", function() {
+            $(document).on("click", "#CourseButton", function() {
                 $.get("/Main/Courses");
             });
             $(document).on("click", "#announcementsbutton", function() {
@@ -58,11 +58,8 @@
                <div class="envlope_icon Bar_icon"><i class="fas fa-envelope"></i></div>
                <div class="bell_icon Bar_icon"><i class="fas fa-bell"></i></div>
                <div class="divider"></div>
-               <div class="userBox">
-                <p>${Member.getFullname() }</p>
-                <div class="userImg"></div>
-                	<img src="${Member.getPhoto()}" />
-               </div>
+               <p>${Member.getFullname() }</p>
+               <div class="userImg" style="background-image: url(${Member.getPhoto()})"></div>
                </div>
            </div>
        </div>
@@ -76,20 +73,19 @@
 				<form action="/Main/Course">
 				<input value="Enroll" name="FunctionType">
 				<input value="${course.getCourseID()}" name="CourseID">
-				<button name="CourseID" value="${course.getCourseID()}">Enroll</button>
+				<button id="CourseButton" name="CourseID" value="${course.getCourseID()}">Enroll</button>
 				</form>
 				</div>
 			</c:forEach>
        </div>
        <div id="Profile" class="page">
-           <div class="ProPho-Background">
-           		
-               <div class="Blured"><img src="data:image/jpg;base64,${Member.getPhoto()}" /></div>
+           <div class="ProPho-Background" style="background-image: url(${Member.getPhoto()})">
+               <div class="Blured"></div>
            </div>
-           <div class="ProPho">
-            <div class="shadow">
+           <div class="ProPho" style="background-image: url(${Member.getPhoto()})">
+              <div class="shadow">
                 <i class="fas fa-camera"></i>
-            </div>
+           </div>
            </div>
            <div class="info-container">
            <div class="Account-infoBox infoBox">
