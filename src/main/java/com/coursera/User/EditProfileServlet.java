@@ -37,8 +37,10 @@ public class EditProfileServlet extends HttpServlet{
 			user.setFullname(value);
 			break;
 		case "Email":
-			dao.editEmail(user.getId(), value);
-			user.setEmail(value);
+			if(dao.editEmail(user.getId(), value))
+				user.setEmail(value);
+			else
+				request.setAttribute("Message", "this email already exists!");
 			break;
 		case "Password":
 			dao.editPassword(user.getId(), value);
@@ -68,6 +70,6 @@ public class EditProfileServlet extends HttpServlet{
 			System.out.println("Error edit");
 
 		}
-		response.sendRedirect("Main");
+		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
 	}
 }
