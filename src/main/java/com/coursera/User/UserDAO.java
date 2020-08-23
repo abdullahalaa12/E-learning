@@ -198,7 +198,7 @@ public class UserDAO
 	public boolean editEmail(int userid , String Email)
 	{
 		short out = -1;
-		String query="{call editEmail(?,?)}";
+		String query="{call editEmail(?,?,?)}";
 		try
 		{
 			CallableStatement Call = conn.prepareCall(query);
