@@ -198,7 +198,7 @@ public class UserDAO
 	public boolean editEmail(int userid , String Email)
 	{
 		short out = -1;
-		String query="{call editEmail(?,?)}";
+		String query="{call editEmail(?,?,?)}";
 		try
 		{
 			CallableStatement Call = conn.prepareCall(query);
@@ -387,5 +387,50 @@ public class UserDAO
 			v.printStackTrace();
 		}
 	}
-	
+	public void addcomment(int userid , String comment , int courseid )
+	{
+		String query="{call addcomment(?,?,?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, userid);
+		Call.setString(2, comment);
+		Call.setInt(3, courseid);
+		Call.execute();
+			
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}	
+	}
+	public void editcomment(int commentid , String newcomment)
+	{
+		String query="{call editcomment(?,?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, commentid);
+		Call.setString(2, newcomment);
+		Call.execute();
+			
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}	
+	}
+	public void deletecomment(int commentid)
+	{
+
+		String query="{call deletecomment(?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, commentid);
+		Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}		
+		}
+
 }
