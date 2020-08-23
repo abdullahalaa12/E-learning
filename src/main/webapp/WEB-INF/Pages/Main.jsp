@@ -91,123 +91,110 @@
            <div class="Account-infoBox infoBox">
                <header>Account information</header>
                <div class="divider"></div>
-               <div class="FullNameBox Box" id="Tata">
+               <div class="FullNameBox Box" id="FullName">
                    <Label class="Title">Full Name</Label>
                    <p class="info">${Member.getFullname() }</p>
-                    <form action=""><input type="text" name="" id="" placeholder="New Name"></form>
-                    <a><button class="edit" onclick="ShowEditFeild('Tata')"><i class="far fa-edit"></i></button></a>
-                    <a><button class="cancel" onclick="CancelEditing('Tata')"><i class="fas fa-times"></i></button></a>
+                   <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="FullName">
+                   </form>
+                    <a><button class="edit" onclick="ShowEditFeild('FullName')"><i class="far fa-edit"></i></button></a>
+                    <a><button class="cancel" onclick="CancelEditing('FullName')"><i class="fas fa-times"></i></button></a>
                </div>
-               <div class="EmailBox Box">
+               <div class="EmailBox Box" id="Email">
                 <Label class="Title">Email Address</Label>
                 <p class="info">${Member.getEmail() }</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Email">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+                   <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="Email">
+                   </form>
+                    <a><button type ="button" class="edit" onclick="ShowEditFeild('Email')"><i class="far fa-edit"></i></button></a>
+                    <a><button type ="button" class="cancel" onclick="CancelEditing('Email')"><i class="fas fa-times"></i></button></a>
+                 
                </div>
-               <div class="PasswordBox Box">
+               <div class="PasswordBox Box" id="Password">
                 <Label class="Title">Password</Label>
                 <p class="info">${Member.getPassword() }</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Password">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+                <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="Password">
+                   </form>
+                    <a><button type ="button" class="edit" onclick="ShowEditFeild('Password')"><i class="far fa-edit"></i></button></a>
+                    <a><button type ="button" class="cancel" onclick="CancelEditing('Password')"><i class="fas fa-times"></i></button></a>
                </div>
            </div>
            <div class="Additional-infoBox infoBox">
             <header>Additional information</header>
                <div class="divider"></div>
-               <div class="GenderBox Box">
+               <div class="GenderBox Box" id="Gender">
                    <Label class="Title">Gender</Label>
                    <p class="info">${Member.getGender() }</p>
-                   <form>
-                       <input type="text" name="" id="" placeholder="New Name">
-                       <button class="edit"><i class="far fa-edit"></i></button>
-                       <button class="cancel"><i class="fas fa-times"></i></button>
-                    </form>
+                   
                </div>
-               <div class="EducationLevel Box">
+               <div class="EducationLevel Box" id="EducationalLevel">
                 <Label class="Title">Education Level</Label>
                 <p class="info">3rd Year Fcis</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Password">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+
                </div>
                <div class="BirthDate Box">
                 <Label class="Title">BirthDate</Label>
                 <p class="info">${Member.getBirthdate() }</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Email">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+                
                </div>
            </div>
            <div class="Contact-infoBox infoBox">
             <header>Contact information</header>
             <div class="divider"></div>
-               <div class="Phone Box">
+               <div class="Phone Box" id="Phone">
                    <Label class="Title">Phone</Label>
                    <p class="info">${Member.getPhone() }</p>
-                   <form>
-                       <input type="text" name="" id="" placeholder="New Name">
-                       <button class="edit"><i class="far fa-edit"></i></button>
-                       <button class="cancel"><i class="fas fa-times"></i></button>
-                    </form>
+                    <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="Phone">
+                   </form>
+                    <a><button type ="button" class="edit" onclick="ShowEditFeild('Phone')"><i class="far fa-edit"></i></button></a>
+                    <a><button type ="button" class="cancel" onclick="CancelEditing('Phone')"><i class="fas fa-times"></i></button></a>
                </div>
-               <div class="Nationality/City Box">
+               <div class="Nationality/City Box" id="Nationality">
                 <Label class="Title">Nationality/City</Label>
                 <p class="info">${Member.getNationality() }</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Email">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+                
                </div>
-               <div class="Website Box">
+               <div class="Website Box" id="Website">
                 <Label class="Title">Website</Label>
-                <p class="info">Add Website</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Password">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+                <p class="info">${Member.getWebsite() }</p>
+                 <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="Website">
+                   </form>
+                    <a><button type ="button" class="edit" onclick="ShowEditFeild('Website')"><i class="far fa-edit"></i></button></a>
+                    <a><button type ="button" class="cancel" onclick="CancelEditing('Website')"><i class="fas fa-times"></i></button></a>
                </div>
            </div>
            <div class="Jop-infoBox infoBox">
             <header>Jop information</header>
             <div class="divider"></div>
-               <div class="Company Box">
+               <div class="Company Box" id="Company">
                    <Label class="Title">Company</Label>
-                   <p class="info">Add Company</p>
-                   <form>
-                       <input type="text" name="" id="" placeholder="New Name">
-                       <button class="edit"><i class="far fa-edit"></i></button>
-                       <button class="cancel"><i class="fas fa-times"></i></button>
-                    </form>
+                   <p class="info">${Member.getCompany() }</p>
+                   <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="Company">
+                   </form>
+                    <a><button type ="button" class="edit" onclick="ShowEditFeild('Company')"><i class="far fa-edit"></i></button></a>
+                    <a><button type ="button" class="cancel" onclick="CancelEditing('Company')"><i class="fas fa-times"></i></button></a>
                </div>
-               <div class="JopTitle Box">
+               <div class="JopTitle Box" id="Joptitle">
                 <Label class="Title">Jop Title</Label>
-                <p class="info">Add Jop Title</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Email">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+                <p class="info">${Member.getJoptitle() }</p>
+                <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="Joptitle">
+                   </form>
+                    <a><button type ="button" class="edit" onclick="ShowEditFeild('Joptitle')"><i class="far fa-edit"></i></button></a>
+                    <a><button type ="button" class="cancel" onclick="CancelEditing('Joptitle')"><i class="fas fa-times"></i></button></a>
                </div>
-               <div class="Department Box">
+               <div class="Department Box" id="Department">
                 <Label class="Title">Department</Label>
-                <p class="info">Add Department</p>
-                <form>
-                    <input type="text" name="" id="" placeholder="New Password">
-                    <button class="edit"><i class="far fa-edit"></i></button>
-                    <button class="cancel"><i class="fas fa-times"></i></button>
-                 </form>
+                <p class="info">${Member.getDepartment() }</p>
+                <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <input type="hidden" name="column" value="Department">
+                   </form>
+                    <a><button type ="button" class="edit" onclick="ShowEditFeild('Department')"><i class="far fa-edit"></i></button></a>
+                    <a><button type ="button" class="cancel" onclick="CancelEditing('Department')"><i class="fas fa-times"></i></button></a>
                </div>
            </div>
            </div>
@@ -229,20 +216,6 @@
        <div id="Grades" class="page"></div>
    </div>
         <script src="/resources/js/Script.js"></script>
-<!--<img src="${Member.getPhoto()}" /><br>
-<p>${Member.getId() }</p><br>
-<p>${Member.getFullname() }</p><br>
-<p>${Member.getPassword() }</p><br>
-<p>${Member.getEmail() }</p><br>
-<p>${Member.getNationality() }</p><br>
-<p>${Member.getPhone() }</p><br>
-<p>${Member.getBirthdate() }</p><br>
-<p>${Member.getAge() }</p><br>
-<p>${Member.getEducationlevel() }</p><br>
-<p>${Member.getCompany() }</p><br>
-<p>${Member.getJoptitle() }</p><br>
-<p>${Member.getDepartment() }</p><br>
-<p>${Member.getWebsite() }</p><br>
-<p>${Member.getUserType() }</p><br>-->
+
 </body>
 </html>
