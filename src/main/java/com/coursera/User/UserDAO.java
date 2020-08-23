@@ -113,10 +113,7 @@ public class UserDAO
 			e.printStackTrace();
 		}
 		
-		if(out==0)
-			return true;
-		else
-			return false;
+		return (out == 0);
 	}
 	
 	private  String getBase64Img(Blob ImgBlob)
@@ -198,19 +195,24 @@ public class UserDAO
 			e.printStackTrace();	
 		}
 	}
-	public void editEmail(int userid , String Email)
+	public boolean editEmail(int userid , String Email)
 	{
+		short out = -1;
 		String query="{call editEmail(?,?)}";
 		try
 		{
 			CallableStatement Call = conn.prepareCall(query);
 			Call.setInt(1, userid);
 			Call.setString(2,Email);
+			Call.registerOutParameter(3, Types.SMALLINT);
 			Call.execute();
+			out = Call.getShort(3);
+			
 		}
 		catch (SQLException e){
 			e.printStackTrace();	
 		}
+		return (out == 0);
 	}
 	public void editPassword(int userid ,String Password)
 	{
