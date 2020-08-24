@@ -55,8 +55,62 @@
        </div>
        <div id="Courses" class="page">
        <c:if test="${Member.getUserType() == 'Instructor'}">
-    	<button class="ShowFormbtn" onclick="ShowForm('FileForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>	
-    		<div id="CourseDiv"></div>
+    	<button class="ShowFormbtn" onclick="ShowForm('CourseForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>	
+    		<div id="CourseForm">
+            <button class="CloseFormbtn" onclick="CloseForm('CourseForm')"><i class="fas fa-times"></i></button>
+            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data">
+                <Label id="CourseInfo">Course Information</Label>
+                <input type="text" name="CourseName" id="CourseName" placeholder="Name">
+                <input type="text" name="CourseField" id="CourseField" placeholder="Field">
+                <div id="StartDate-div">
+                    <label>Start Date</label><br>
+		            <select name="BirthDay" id="days">
+		        	    <option>Day</option>
+		           		<c:forEach var = "i" begin = "1" end = "31">
+		        			<option value="${i }">${i }</option>
+		     	 		</c:forEach>
+		     	 	</select>
+		            <select name="BirthMonth" id="months">
+		                <option>Month</option>
+		           		<c:forEach var = "i" begin = "1" end = "12">
+		        			<option value="${i }">${i }</option>
+		     	 		</c:forEach>
+		     	 	</select>
+		            <select name="BirthYear" id="years">
+		                <option>Year</option>
+		           		<c:forEach var = "i" begin = "1900" end = "2020">
+		        			<option value="${i }">${i }</option>
+		     	 		</c:forEach>
+		     	 	</select>
+            	</div>
+            	<div id="EndDate-div">
+            	    <label>End Date</label><br>
+		            <select name="BirthDay" id="days">
+		            	<option>Day</option>
+		           		<c:forEach var = "i" begin = "1" end = "31">
+		        			<option value="${i }">${i }</option>
+		     	 		</c:forEach>
+		     	 	</select>
+		            <select name="BirthMonth" id="months">
+		            <option>Month</option>
+		           		<c:forEach var = "i" begin = "1" end = "12">
+		        			<option value="${i }">${i }</option>
+		     	 		</c:forEach>
+		     	 	</select>
+		            <select name="BirthYear" id="years">
+		            <option>Year</option>
+		           		<c:forEach var = "i" begin = "1900" end = "2020">
+		        			<option value="${i }">${i }</option>
+		     	 		</c:forEach>
+		     	 	</select>
+            	</div>
+            	 <Label for="file" id="UploadFilebtn" onclick="FileInputClicked()"><i class="fas fa-upload"></i></Label>
+                <Label id="FileValue">No File Added</Label>
+            	<input name="Photo" type="file" value="Add Photo" id="AddPhoto-btn" hidden="hidden" accept="image/*" onchange="loadFile3(event)">
+            	 <img src="" alt="" id="ImgCourse">
+                <button id="CourseSubmit" type="submit" onclick="ShowFile()">Submit</button>
+           </form>   
+           </div>
 		</c:if>
   		<c:forEach items="${Member.getCourses()}" var="course">
 				<div class="CourseBox">
@@ -65,7 +119,8 @@
 				<p>${course.getName()}</p>
 				<form action="/Main/Course" method="post">
 				<input value="${course.getCourseID()}" name="CourseID" type="hidden">
-				<button id="CourseButton" type="submit"><i class="fas fa-sign-in-alt"></i></button>
+				<button id="GoToCoursebtn" type="submit"><i class="fas fa-sign-in-alt"></i></button>
+				<button id="DeleteCoursebtn" type="submit"><i class="fas fa-trash-alt"></i></button>
 				</form>
 				<div class="InstructorImg" style="background-image: url(${course.getInstructor().getPhoto()})"></div>
 				<label class="InstructorName">${course.getInstructor().getFullname()}</label>
@@ -88,7 +143,7 @@
                <div class="FullNameBox Box" id="FullName">
                    <Label class="Title">Full Name</Label>
                    <p class="info">${Member.getFullname() }</p>
-                   <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="FullName">
                    </form>
                     <a><button class="edit" onclick="ShowEditFeild('FullName')"><i class="far fa-edit"></i></button></a>
@@ -97,7 +152,7 @@
                <div class="EmailBox Box" id="Email">
                 <Label class="Title">Email Address</Label>
                 <p class="info">${Member.getEmail() }</p>
-                   <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="Email">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Email')"><i class="far fa-edit"></i></button></a>
@@ -107,7 +162,7 @@
                <div class="PasswordBox Box" id="Password">
                 <Label class="Title">Password</Label>
                 <p class="info">${Member.getPassword() }</p>
-                <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="Password">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Password')"><i class="far fa-edit"></i></button></a>
@@ -139,7 +194,7 @@
                <div class="Phone Box" id="Phone">
                    <Label class="Title">Phone</Label>
                    <p class="info">${Member.getPhone() }</p>
-                    <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                    <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="Phone">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Phone')"><i class="far fa-edit"></i></button></a>
@@ -153,7 +208,7 @@
                <div class="Website Box" id="Website">
                 <Label class="Title">Website</Label>
                 <p class="info">${Member.getWebsite() }</p>
-                 <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                 <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="Website">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Website')"><i class="far fa-edit"></i></button></a>
@@ -166,7 +221,7 @@
                <div class="Company Box" id="Company">
                    <Label class="Title">Company</Label>
                    <p class="info">${Member.getCompany() }</p>
-                   <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                   <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="Company">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Company')"><i class="far fa-edit"></i></button></a>
@@ -175,7 +230,7 @@
                <div class="JopTitle Box" id="Joptitle">
                 <Label class="Title">Jop Title</Label>
                 <p class="info">${Member.getJoptitle() }</p>
-                <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="Joptitle">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Joptitle')"><i class="far fa-edit"></i></button></a>
@@ -184,7 +239,7 @@
                <div class="Department Box" id="Department">
                 <Label class="Title">Department</Label>
                 <p class="info">${Member.getDepartment() }</p>
-                <form action="EditProfile" method="post"><input type="text" name="Value" placeholder="New Name">
+                <form action="EditProfile" method="post"><input type="text" name="Value">
                    <input type="hidden" name="column" value="Department">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Department')"><i class="far fa-edit"></i></button></a>
@@ -209,8 +264,24 @@
        <div id="Grades" class="page"></div>
    </div>
         <script src="/resources/js/Script.js"></script>
-        <script type="text/javascript">
-        	
+       <script type="text/javascript">
+            function ShowForm(FormName){
+                var FileForm = document.getElementById(FormName);
+                FileForm.style.width = "700px";
+                FileForm.style.borderLeft = "1px solid rgb(44,58,71)";
+            }
+            function CloseForm(FormName){
+                var FileForm = document.getElementById(FormName);
+                FileForm.style.width="0";
+                FileForm.style.border = "none";
+            }
+            function loadFile3(event) {
+            	document.getElementById("ImgCourse").src = URL.createObjectURL(event.target.files[0]);
+            	document.getElementById("FileValue").innerHTML = document.getElementById("AddPhoto-btn").value.match( /[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+            }
+            function FileInputClicked(){
+            	document.getElementById("AddPhoto-btn").click();
+            }
         </script>
 <!--<img src="${Member.getPhoto()}" /><br>
 <p>${Member.getId() }</p><br>

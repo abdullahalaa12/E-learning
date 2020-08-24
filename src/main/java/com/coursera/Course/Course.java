@@ -28,7 +28,7 @@ public class Course {
 		this.NumberOfStudents=NumberOfStudents;
 		this.NumberOfInstructors=NumberOfInstructors;
 	}
-	
+
 	public User getInstructor() {
 		return Instructor;
 	}

@@ -18,6 +18,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 <title>Main</title>
 </head>
 <body>
@@ -64,7 +65,7 @@
                 <input type="text" name="FileTitle" id="FileTitle" placeholder="File Title">
                 <Label for="file" id="UploadFilebtn" onclick="FileInputClicked()"><i class="fas fa-upload"></i></Label>
                 <Label id="FileValue">No File Added</Label>
-                <input type="file" name="UploadedFile" id="file"  type="hidden" onchange="loadFile2(event)">
+                <input type="file" name="UploadedFile" id="file"  hidden="hidden" onchange="loadFile2(event)">
                 <select  id="FileType">
                     <option value="Word">Word</option>
                     <option value="PPtx">PPtx</option>
@@ -74,17 +75,18 @@
                     <option value="Image">Image</option>
                 </select>
                 <button id="FileSubmit" type="submit" onclick="ShowFile()">Submit</button>
-           </form>
-          
+           </form>   
            </div>
-            </c:if>
+        </c:if>
             <c:forEach items="${FilesArray }" var="file">
+            <div class="FileBox">
             	<p>
-            		<a href="/Main/Course/ViewFile?FileID=${file.getFileID() }">${file.getFileTitle() }</a>
+            		<a href="/Main/Course/ViewFile?FileID=${file.getFileID() }" class="FileLink">${file.getFileTitle() }</a>
             		<c:if test="${Member.getUserType() == 'Instructor'}">
-            			<a href="/Main/Course/DeleteFile?FileID=${file.getFileID() }"><button type="button" >Delete</button></a>
+            			<a href="/Main/Course/DeleteFile?FileID=${file.getFileID() }"><button type="button" class="DeleteFile" ><i class="fas fa-trash-alt"></i></button></a>
             		</c:if>
             	</p>
+            </div>
             </c:forEach>
        </div>
        <div id="Quizes" class="page">
@@ -118,11 +120,16 @@
             function ShowForm(FormName){
                 var FileForm = document.getElementById(FormName);
                 FileForm.style.width = "700px";
+                FileForm.style.borderLeft = "1px solid rgb(44,58,71)";
             }
             function CloseForm(FormName){
                 var FileForm = document.getElementById(FormName);
                 FileForm.style.width="0";
+                FileForm.style.border = "none";
             }
+            function GoToFile() {
+            	document.getElementById();				
+			}
         </script>
 </body>
 </html>

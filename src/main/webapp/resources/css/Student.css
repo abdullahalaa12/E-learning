@@ -263,9 +263,7 @@ border-radius: 20px;
 	width:400px;
 	height:300px;
 	margin: 50px;
-	background-color: black;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
+	border: 1px solid #ced6e0;
 }
 #Courses,#Dashboard p{
 	font-family: 'Work Sans', sans-serif;
@@ -342,8 +340,197 @@ border-radius: 20px;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
+}
+#Courses #CourseForm{
+    width: 0;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    transition: all 0.5s ease;
+}
+#Courses #CourseForm form{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color:transparent;
+    transition: all 0.5s ease;
+}
+#Courses .CloseFormbtn{
+    display: block;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    /*background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));*/
+    background-color: transparent;
+    color:rgb(214,162,232);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: auto;
+    top: 30px;
+    left:40px;
+}
+#Courses #CourseForm form #CourseInfo{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 30px;
+    position: relative;
+    top: 40px;
+    left: 10%;
+    color:rgb(44,58,71) ;
+
+}
+#Courses #CourseForm form #CourseName{
+    width: 80%;
+    height: 30px;
+    position: relative;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    outline: none;
+    background-color: transparent;
+    border-bottom:3px solid #2C3A47;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #2C3A47;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    transition: all 0.25s ease;
+    display: block;
+}
+#Courses #CourseForm form #CourseField{
+	width: 80%;
+    height: 30px;
+    position: relative;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    outline: none;
+    background-color: transparent;
+    border-bottom:3px solid #2C3A47;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #2C3A47;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    transition: all 0.25s ease;
+    display: block;
+}
+#StartDate-div{
+ position: absolute;
+	top: 40%;
+	 left: 10%;
+    right: 0;
+    margin: auto;
+    color: rgb(44,58,71);
+    font-size: 20px;
+}
+#EndDate-div{
+	position: absolute;
+	top: 40%;
+	 left: 55%;
+    right: 0;
+    margin: auto;
+    color: rgb(44,58,71);
+    font-size: 20px;
+}
+#Courses #CourseForm form #ImgCourse{
+	width: 80%;
+	height: 32%;
+	background-color: #dfe4ea;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	cursor: pointer;
+}
+#UploadFilebtn i{
+    position: absolute;
+    color:rgb(44,58,71) ;
+    font-size: 20px;
+    top: 85%;
+    left: 10%;
+    cursor: pointer;
+}
+#UploadFilebtn i:hover{
+    color: rgb(214,162,232);
+}
+#FileValue{
+	 position: absolute;
+    color:rgb(44,58,71) ;
+    font-size: 15px;
+    top: 85%;
+    left: 18%;
+}
+#Courses #CourseForm form .ImgCourse:hover{
+	border: 2px dotted rgb(44,58,71);
+}
+#Courses #CourseForm form #CourseSubmit{
+    display: block;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    background-position: 200%;
+    border-radius: 30px;
+    position: absolute;
+    margin: auto;
+    top: 90%;
+    left: 60%;
+    width: 30%;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: 200%;
+    font-size: 20px;
+    text-align: center;
+}
+#Courses #CourseForm form #CourseSubmit:hover{
+	background-position: 100%;
+	
+}
+#GoToCoursebtn{
+	position: absolute;
+    color:rgb(44,58,71) ;
+    font-size: 20px;
+    bottom: 60%;
+    right: 2%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+#DeleteCoursebtn{
+	position: absolute;
+    color:rgb(44,58,71) ;
+    font-size: 20px;
+    bottom: 10%;
+    right: 2%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+#GoToCoursebtn:hover,#DeleteCoursebtn:hover{
+	color:rgb(214,162,232);
 }
 #Profile{
     width: 100%;
@@ -542,7 +729,7 @@ border-radius: 20px;
 }
 ::-webkit-input-placeholder
 {
-    text-align: center;
+    text-align: left;
     color:#aaa69d;
     font-size:12pt;
     font-family: 'Roboto', sans-serif;

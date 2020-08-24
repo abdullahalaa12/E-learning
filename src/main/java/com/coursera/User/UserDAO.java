@@ -151,7 +151,7 @@ public class UserDAO
 	}
 	public void AddCourse(int person_id,String Name,String Field,Date StartDate,Date EndDate , Date Duration) 
 	{
-		String query="{call AddCourse(?,?,?,?,?)}";
+		String query="{call AddCourse(?,?,?,?,?,?)}";
 		try
 		{
 			CallableStatement Call = conn.prepareCall(query);
@@ -214,6 +214,7 @@ public class UserDAO
 				if (ds.next())
 				{
 				InstructorID = ds.getInt(1);
+				System.out.println(InstructorID);
 				CallableStatement Call3=conn.prepareCall(query3);
 				Call3.setInt(1, InstructorID);
 				Call3.execute();
@@ -221,8 +222,9 @@ public class UserDAO
 				if (rs2.next())
 				{
 				String InstructorName = rs2.getString("fullname");
-				String Photo=getBase64Img(rs2.getBlob("Photo"));
-				course.setInstructor(new Instructor(InstructorID,InstructorName,Photo));
+				String InstructorPhoto=getBase64Img(rs2.getBlob("Photo"));
+				System.out.println(InstructorName);
+				course.setInstructor(new Instructor(InstructorID,InstructorName,InstructorPhoto));
 				}	
 				}
 		}
