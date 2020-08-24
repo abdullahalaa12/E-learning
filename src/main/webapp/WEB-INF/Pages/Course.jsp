@@ -64,7 +64,7 @@
                 <input type="text" name="FileTitle" id="FileTitle" placeholder="File Title">
                 <Label for="file" id="UploadFilebtn" onclick="FileInputClicked()"><i class="fas fa-upload"></i></Label>
                 <Label id="FileValue">No File Added</Label>
-                <input type="file" name="UploadedFile" id="file" accept="image/*" type="hidden" onchange="loadFile2(event)">
+                <input type="file" name="UploadedFile" id="file"  type="hidden" onchange="loadFile2(event)">
                 <select  id="FileType">
                     <option value="Word">Word</option>
                     <option value="PPtx">PPtx</option>
@@ -79,12 +79,22 @@
            </div>
             </c:if>
             <c:forEach items="${FilesArray }" var="file">
-            	<p><a href="/Main/Course/ViewFile?FileID=${file.getFileID() }">${file.getFileTitle() }</a></p>
+            	<p>
+            		<a href="/Main/Course/ViewFile?FileID=${file.getFileID() }">${file.getFileTitle() }</a>
+            		<c:if test="${Member.getUserType() == 'Instructor'}">
+            			<a href="/Main/Course/DeleteFile?FileID=${file.getFileID() }"><button type="button" >Delete</button></a>
+            		</c:if>
+            	</p>
             </c:forEach>
        </div>
        <div id="Quizes" class="page">
        	<c:forEach items="${QuizesArray }" var="quiz">
-            	<p><a href="/Main/Course/ViewQuiz?QuizID=${quiz.getQuiz_id() }">${quiz.getTitle() }</a></p>
+            	<p>
+            		<a href="/Main/Course/ViewQuiz?QuizID=${quiz.getQuiz_id() }">${quiz.getTitle() }</a>
+					<c:if test="${Member.getUserType() == 'Instructor'}">
+            			<a href="/Main/Course/DeleteQuiz?QuizID=${quiz.getQuiz_id() }"><button type="button" >Delete</button></a>
+            		</c:if>
+            	</p>
             </c:forEach>
        </div>
        <div id="Announcements" class="page">

@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 public class DeleteQuizServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		int FileID=Integer.parseInt(request.getParameter("QuizID"));
+		int QuizId=Integer.parseInt(request.getParameter("QuizID"));
 		QuizDAO dao=new QuizDAO();
-
+		
+		dao.Deletequiz(QuizId);
 		response.sendRedirect("/Main/Course");
 	}
 	
