@@ -30,7 +30,7 @@ public class ViewFileServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int FileID=Integer.parseInt(request.getParameter("FileID"));
 		File file=FindFile(FileID,(ArrayList<File>)request.getSession().getAttribute("FilesArray"));
-		if(file.getFileType().equals("Video"))
+		if(file.getFileType().equals("video/mp4"))
 		{
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			byte[] buffer = new byte[4096];
@@ -44,12 +44,13 @@ public class ViewFileServlet extends HttpServlet{
 			 
 			String Base64Video = "data:video/mp4;base64,"+Base64.getEncoder().encodeToString(videoBytes);
 			request.setAttribute("Video", Base64Video);
-			request.getRequestDispatcher("/WEB-INF/Pages/").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/Pages/Video.jsp").forward(request, response);
 		}
 		else
 		{
 			response.setContentType(file.getFileType());
-			response.addHeader("Content-disposition","attachment; filename=" + file.getFileTitle() );
+			if(!file.getFileType().equals("application/pdf"))
+				response.addHeader("Content-disposition","attachment; filename=" + file.getFileTitle() );
 			OutputStream outputStream = response.getOutputStream();
 			byte[] buffer = new byte[4096];
 			int bytesRead = -1;
@@ -57,7 +58,6 @@ public class ViewFileServlet extends HttpServlet{
 			while ((bytesRead = file.getUploadedFile().read(buffer)) != -1) {
 			    outputStream.write(buffer, 0, bytesRead);
 			}
-			
 		}
 	}
 	

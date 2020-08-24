@@ -49,7 +49,7 @@ public class FileDAO {
 				String FileTitle=rs.getString(3);
 				String FileType=rs.getString(4);
 				
-				FileArray.add(new File(FileID,CourseID,UploadedFile.getBinaryStream(),FileTitle,FileType));
+				FileArray.add(new File(CourseID,FileID,UploadedFile.getBinaryStream(),FileTitle,FileType));
 			}
 			
 		} catch (SQLException e){

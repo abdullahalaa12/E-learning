@@ -27,7 +27,7 @@
                 <div class="profile-pic">
                     <img src="/resources/images/pf.svg">
                 </div>
-                <form class="loginform" action="login" method="post">
+                <form class="loginform" action="/login" method="post">
                 <input name="name" id="input-field1" type="text" placeholder="Username"><br>
                 <input name="password" id="input-field2" type="password" placeholder="Password">
                 <a href="#" class="Forget">Forget Password ?</a>

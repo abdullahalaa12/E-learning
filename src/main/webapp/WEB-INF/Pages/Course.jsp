@@ -34,7 +34,7 @@
        <div class="Announcements_btn PageButtons" onclick="ShowContent(4)" onmousemove="MenubtnIn('Announcements_btn')" onmouseout="MenubtnOut('Announcements_btn')"><a id="announcementsbutton"><label for="Announcements_btn"><i class="fas fa-bullhorn"></i>&nbsp; Announcements</label></a></div>
        <div class="Grades_btn PageButtons" onclick="ShowContent(5)" onmousemove="MenubtnIn('Grades_btn')" onmouseout="MenubtnOut('Grades_btn')"><a id="gradesbutton"><label for="Grades_btn"><i class="fas fa-pen"></i>&nbsp;Grades</label></a></div>
        <div class="divider divider3"></div>
-       <div class="Logout_btn PageButtons" onmousemove="MenubtnIn('Logout_btn')" onmouseout="MenubtnOut('Logout_btn')"><a href="logout"><label for="Logout_btn"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</label></a></div>
+       <div class="Logout_btn PageButtons" onmousemove="MenubtnIn('Logout_btn')" onmouseout="MenubtnOut('Logout_btn')"><a href="/logout"><label for="Logout_btn"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</label></a></div>
    </div>
    <div id="Page-Content">
        <div id="Bar">
@@ -55,16 +55,17 @@
        <div id="Dashboard" class="page">
        </div>
        <div id="Files" class="page">
+       <c:if test="${Member.getUserType() == 'Instructor'}">
            <button class="ShowFormbtn" onclick="ShowForm('FileForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>
            <div id="FileForm">
             <button class="CloseFormbtn" onclick="CloseForm('FileForm')"><i class="fas fa-times"></i></button>
-            <form action="">
+            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data">
                 <Label id="FileInfo">File Information</Label>
-                <input type="text" name="" id="FileTitle" placeholder="File Title">
+                <input type="text" name="FileTitle" id="FileTitle" placeholder="File Title">
                 <Label for="file" id="UploadFilebtn" onclick="FileInputClicked()"><i class="fas fa-upload"></i></Label>
                 <Label id="FileValue">No File Added</Label>
-                <input type="file" name="" id="file" accept="image/*" hidden="hidden" onchange="loadFile2(event)">
-                <select name="" id="FileType">
+                <input type="file" name="UploadedFile" id="file" accept="image/*" type="hidden" onchange="loadFile2(event)">
+                <select  id="FileType">
                     <option value="Word">Word</option>
                     <option value="PPtx">PPtx</option>
                     <option value="Excel">Excel</option>
@@ -72,11 +73,20 @@
                     <option value="Video">Video</option>
                     <option value="Image">Image</option>
                 </select>
-                <button id="FileSubmit" type="button" onclick="ShowFile()">Submit</button>
+                <button id="FileSubmit" type="submit" onclick="ShowFile()">Submit</button>
            </form>
+          
            </div>
+            </c:if>
+            <c:forEach items="${FilesArray }" var="file">
+            	<p><a href="/Main/Course/ViewFile?FileID=${file.getFileID() }">${file.getFileTitle() }</a></p>
+            </c:forEach>
        </div>
-       <div id="Quizes" class="page"></div>
+       <div id="Quizes" class="page">
+       	<c:forEach items="${QuizesArray }" var="quiz">
+            	<p><a href="/Main/Course/ViewQuiz?QuizID=${quiz.getQuiz_id() }">${quiz.getTitle() }</a></p>
+            </c:forEach>
+       </div>
        <div id="Announcements" class="page">
            <div id="ann1">
                <header>Hello World</header>

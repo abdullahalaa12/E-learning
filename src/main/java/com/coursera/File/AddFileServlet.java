@@ -15,7 +15,7 @@ import javax.servlet.http.Part;
 public class AddFileServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		request.getRequestDispatcher("/WEB-INF/Pages/").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Pages/Course.jsp").forward(request, response);
 	}
 	
 	@Override
@@ -24,12 +24,15 @@ public class AddFileServlet extends HttpServlet{
 
 		
 		Part UploadedFile=request.getPart("UploadedFile");
-		//String FileTitle=request.getParameter("FileTitle");
-		//String FileType=request.getParameter("FileType");
-		//int CourseID=(int)request.getSession().getAttribute("CourseID");
-		System.out.println(UploadedFile.getName());
+		String FileTitle=request.getParameter("FileTitle");
+		int CourseID=(int)request.getSession().getAttribute("CourseID");
+		String FileType=UploadedFile.getContentType();
+		if(FileType.equals("application/vnd.openxmlformats-officedocument.presentationml.presentation"))
+			FileTitle+=".pptx";
+
+		System.out.println(FileTitle);
 		System.out.println(UploadedFile.getContentType());
-		//dao.addFile(UploadedFile, FileTitle, FileType, CourseID);
+		dao.addFile(UploadedFile, FileTitle, FileType, CourseID);
 		response.sendRedirect("/Main/Course");
 	}
 }

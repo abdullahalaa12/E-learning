@@ -19,7 +19,7 @@
 </head>
 <body>
         <div class="form">
-        <form action="Register" method="post" enctype="multipart/form-data">
+        <form action="/Register" method="post" enctype="multipart/form-data">
             <div id="photo-container">
                 <label for="file" id="AddPhoto-label" onclick="AddPhoto()"><i class="material-icons">
                     add_photo_alternate

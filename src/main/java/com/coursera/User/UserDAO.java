@@ -182,17 +182,14 @@ public class UserDAO
 				if (ds.next())
 				{
 				InstructorID = ds.getInt(1);
-				System.out.println(InstructorID);
 				CallableStatement Call3=conn.prepareCall(query3);
 				Call3.setInt(1, InstructorID);
 				Call3.execute();
 				ResultSet rs2 = Call3.getResultSet();
-				System.out.println("Fuck");
 				if (rs2.next())
 				{
 				String InstructorName = rs2.getString("fullname");
 				String Photo=getBase64Img(rs2.getBlob("Photo"));
-				System.out.println("Fuck ME PRO");
 				course.setInstructor(new Instructor(InstructorID,InstructorName,Photo));
 				}	
 				}

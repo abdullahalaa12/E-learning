@@ -46,7 +46,7 @@
                <div class="envlope_icon Bar_icon"><i class="fas fa-envelope"></i></div>
                <div class="bell_icon Bar_icon"><i class="fas fa-bell"></i></div>
                <div class="divider"></div>
-               <p>${Member.getFullname() }${Message }</p>
+               <p>${Member.getFullname() }</p>
                <div class="userImg" style="background-image: url(${Member.getPhoto()})"></div>
                </div>
            </div>
@@ -63,12 +63,12 @@
 				<div class="CourseImg"></div>
 				<p>${course.getCourseID()}</p><br>
 				<p>${course.getName()}</p>
-				<form action="/Main/Course">
+				<form action="/Main/Course" method="post">
+				<input value="${course.getCourseID()}" name="CourseID" type="hidden">
+				<button id="CourseButton" type="submit"><i class="fas fa-sign-in-alt"></i></button>
+				</form>
 				<div class="InstructorImg" style="background-image: url(${course.getInstructor().getPhoto()})"></div>
 				<label class="InstructorName">${course.getInstructor().getFullname()}</label>
-				<input value="${course.getCourseID()}" name="CourseID" hidden="hidden">
-				<button id="CourseButton" name="CourseID" value="${course.getCourseID()}"><i class="fas fa-sign-in-alt"></i></button>
-				</form>
 				</div>
 			</c:forEach>
        </div>
