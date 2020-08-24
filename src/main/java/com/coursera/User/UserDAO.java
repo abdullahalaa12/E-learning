@@ -113,10 +113,7 @@ public class UserDAO
 			e.printStackTrace();
 		}
 		
-		if(out==0)
-			return true;
-		else
-			return false;
+		return (out == 0);
 	}
 	
 	private  String getBase64Img(Blob ImgBlob)
@@ -200,4 +197,256 @@ public class UserDAO
 	public void AddAnnouncement() {}
 	public void DeleteAnnouncement() {}
 	public void ShowAnnouncements() {}
+	public void editfullname(int userid , String fullname)
+	{
+		String query="{call editfullname(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,fullname);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public boolean editEmail(int userid , String Email)
+	{
+		short out = -1;
+		String query="{call editEmail(?,?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Email);
+			Call.registerOutParameter(3, Types.SMALLINT);
+			Call.execute();
+			out = Call.getShort(3);
+			
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+		return (out == 0);
+	}
+	public void editPassword(int userid ,String Password)
+	{
+		String query="{call editPassword(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Password);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editNationality(int userid,String Nationality)
+	{
+		String query="{call editNationality(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Nationality);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editPhone(int userid,String Phone)
+	{
+		String query="{call editPhone(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Phone);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editBirthdate(int userid , String BirthYear , String BirthMonth , String Birthday)
+	{
+		String query="{call editBirthdate(?,?)}";
+		try
+		{
+			LocalDate Birthdate=LocalDate.of(Integer.parseInt(BirthYear),Integer.parseInt(BirthMonth),Integer.parseInt(Birthday));
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setDate(2,Date.valueOf(Birthdate));
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editEducationlevel(int userid , int Educationlevel)
+	{
+		String query="{call editEducationlevel(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setInt(2,Educationlevel);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editAge(int userid , int Age)
+	{
+		String query="{call editAge(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setInt(2,Age);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editJoptitle(int userid , String Joptitle)
+	{
+		String query="{call editJoptitle(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Joptitle);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editCompany(int userid,String Company)
+	{
+		String query="{call editCompany(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Company);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+	public void editDepartment(int userid,String Department)
+	{
+		String query="{call editDepartment(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Department);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+    public void editWebsite(int userid,String Website)
+	{
+		String query="{call editWebsite(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Website);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+    public void editGender(int userid,String Gender)
+	{
+		String query="{call editGender(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setString(2,Gender);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+	}
+    public void editPhoto(int userid,Part Photo)
+	{
+		String query="{call editPhoto(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, userid);
+			Call.setBlob(2, Photo.getInputStream());
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+		catch (IOException v) {
+			// TODO Auto-generated catch block
+			v.printStackTrace();
+		}
+	}
+	public void addcomment(int userid , String comment , int courseid )
+	{
+		String query="{call addcomment(?,?,?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, userid);
+		Call.setString(2, comment);
+		Call.setInt(3, courseid);
+		Call.execute();
+			
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}	
+	}
+	public void editcomment(int commentid , String newcomment)
+	{
+		String query="{call editcomment(?,?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, commentid);
+		Call.setString(2, newcomment);
+		Call.execute();
+			
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}	
+	}
+	public void deletecomment(int commentid)
+	{
+
+		String query="{call deletecomment(?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, commentid);
+		Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}		
+		}
+
 }
