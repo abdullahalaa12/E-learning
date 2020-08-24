@@ -55,7 +55,7 @@ public class CommentDAO
 			String photo  = getBase64Img(ds.getBlob("Photo"));
 			String email = ds.getString("Email");
 			com.add(new Comment(comment_id,email,comment,photo));
-			}	
+			}
 			}
 			
 		}

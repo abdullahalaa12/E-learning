@@ -51,7 +51,7 @@ public class UserDAO
 				String Phone=rs.getString("Phone");
 				Date Birthdate=rs.getDate("Birthdate");
 				int Age=rs.getInt("Age");
-				String Photo=getBase64Img(rs.getBlob("Photo"));
+				String Photo = getBase64Img(rs.getBlob("Photo"));
 				int Educationlevel=rs.getInt("Educationlevel");
 				String Company=rs.getString("Company");
 				String Joptitle=rs.getString("Joptitle");
@@ -148,14 +148,12 @@ public class UserDAO
 	public ArrayList<Course> ShowCourses(int userid) {
 		
 		String query="{call ShowCourses(?)}";
-		String query2="{call getInstructorID(?,?)}";
+		String query2="{call getInstructorID(?)}";
 		String query3="{call getInstructorInfo(?)}";
 		int InstructorID;
 		ArrayList<Course> Courses=new ArrayList<Course>();
 		try {
 			CallableStatement Call=conn.prepareCall(query);
-			CallableStatement Call2=conn.prepareCall(query2);
-			CallableStatement Call3=conn.prepareCall(query3);
 			Call.setInt(1,userid);
 			Call.execute();
 			ResultSet rs=Call.getResultSet();
@@ -171,20 +169,30 @@ public class UserDAO
 				int NumberOfInstructors=rs.getInt("NumberOfInstructors");
 				Course course = new Course(Courseid,CourseName,Field, StartDate, EndDate, Duration,NumberOfStudents,NumberOfInstructors);
 				Courses.add(course);
+				CallableStatement Call2=conn.prepareCall(query2);
 				Call2.setInt(1, Courseid);
-				Call2.registerOutParameter(2, Types.INTEGER);
-				Call2.executeUpdate();
-				InstructorID = Call2.getInt(2);
+				Call2.execute();
+				ResultSet ds = Call2.getResultSet();
+				if (ds.next())
+				{
+				InstructorID = ds.getInt(1);
 				System.out.println(InstructorID);
+				CallableStatement Call3=conn.prepareCall(query3);
 				Call3.setInt(1, InstructorID);
 				Call3.execute();
 				ResultSet rs2 = Call3.getResultSet();
+				System.out.println("Fuck");
+				if (rs2.next())
+				{
 				String InstructorName = rs2.getString("fullname");
 				String Photo=getBase64Img(rs2.getBlob("Photo"));
-				System.out.println("Fuck");
+				System.out.println("Fuck ME PRO");
 				course.setInstructor(new Instructor(InstructorID,InstructorName,Photo));
-			}
-		} catch (SQLException e){
+				}	
+				}
+		}
+		}
+			catch (SQLException e){
 			e.printStackTrace();	
 		}
 		
