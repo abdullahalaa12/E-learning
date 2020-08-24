@@ -14,7 +14,7 @@ public class DeleteFileServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int FileID=Integer.parseInt(request.getParameter("FileID"));
 		FileDAO dao=new FileDAO();
-		dao.Connect();
+
 		dao.deleteFile(FileID);
 		response.sendRedirect("/Main/Course");
 	}

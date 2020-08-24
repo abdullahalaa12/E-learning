@@ -29,7 +29,7 @@ public class EditProfileServlet extends HttpServlet{
 		System.out.println(value);
 		
 		UserDAO dao=new UserDAO();
-		dao.Connect();
+
 		switch(column)
 		{
 		case "FullName":

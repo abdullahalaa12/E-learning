@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		UserDAO DAO=new UserDAO();
-		DAO.Connect();
+
 		String Email=request.getParameter("Email");
 		String Password=request.getParameter("Password");
 		String FirstName=request.getParameter("FirstName");

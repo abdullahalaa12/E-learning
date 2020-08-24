@@ -21,7 +21,13 @@ import com.coursera.Course.Course;
 public class UserDAO
 {
 	Connection conn;
-	public void  Connect()
+	
+	public UserDAO()
+	{
+		Connect();
+	}
+	
+	private void  Connect()
 	{
 		try {
     	   	

@@ -5,18 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>
-            $(document).on("click", "#CourseButton", function() {
-                $.get("/Main/Courses");
-            });
-            $(document).on("click", "#announcementsbutton", function() {
-                $.get("/Main/Announcement");
-            });
-            $(document).on("click", "#gradesbutton", function() {
-                $.get("/Main/Grades");
-            });
-        </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Student2.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"

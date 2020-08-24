@@ -14,7 +14,12 @@ import javax.servlet.http.Part;
 public class FileDAO {
 
 	Connection conn;
-	public void  Connect()
+	public FileDAO()
+	{
+		Connect();
+	}
+	
+	private void  Connect()
 	{
 		try {
     	   	

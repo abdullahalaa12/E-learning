@@ -18,7 +18,7 @@ public class CourseServlet extends HttpServlet{
 	private void loadFiles(int CourseID,HttpServletRequest request)
 	{
 		FileDAO dao=new FileDAO();
-		dao.Connect();
+
 		ArrayList<File> FilesArray=dao.getFiles(CourseID);
 		request.getSession().setAttribute("FilesArray", FilesArray);
 	}

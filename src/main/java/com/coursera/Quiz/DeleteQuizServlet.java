@@ -14,7 +14,6 @@ public class DeleteQuizServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int FileID=Integer.parseInt(request.getParameter("QuizID"));
 		QuizDAO dao=new QuizDAO();
-		dao.Connect();
 
 		response.sendRedirect("/Main/Course");
 	}

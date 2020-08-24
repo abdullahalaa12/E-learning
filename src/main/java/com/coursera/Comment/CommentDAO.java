@@ -19,7 +19,13 @@ import java.sql.ResultSet;
 public class CommentDAO 
 {
 	Connection conn;
-	public void  Connect()
+	
+	public CommentDAO()
+	{
+		Connect();
+	}
+	
+	private void  Connect()
 	{
 		try {
     	   	
@@ -30,6 +36,7 @@ public class CommentDAO
 			e.printStackTrace();	
 		}
 	}
+	
 	public ArrayList<Comment>getcomments(int course_id)
 	{
 		ArrayList<Comment> com = new ArrayList<Comment>();

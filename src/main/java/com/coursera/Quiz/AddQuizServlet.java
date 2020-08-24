@@ -18,7 +18,6 @@ public class AddQuizServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		QuizDAO dao=new QuizDAO();
-		dao.Connect();
 		
 		int counter=Integer.parseInt(request.getParameter("QuestionCounter"));
 		

@@ -20,7 +20,12 @@ import com.coursera.File.File;
 public class QuizDAO 
 {
 	Connection conn;
-	public void  Connect()
+	public QuizDAO()
+	{
+		Connect();
+	}
+	
+	private void  Connect()
 	{
 		try {
     	   	

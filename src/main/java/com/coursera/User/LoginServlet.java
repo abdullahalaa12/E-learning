@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet{
 		String password=request.getParameter("password");
 		
 		UserDAO DAO=new UserDAO();
-		DAO.Connect();
+
 		User user = DAO.Login(email, password);
 		if(user != null)
 		{
