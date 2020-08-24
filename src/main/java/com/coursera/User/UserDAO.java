@@ -151,9 +151,14 @@ public class UserDAO
 	public ArrayList<Course> ShowCourses(int userid) {
 		
 		String query="{call ShowCourses(?)}";
+		String query2="{call getInstructorID(?,?)}";
+		String query3="{call getInstructorInfo(?)}";
+		int InstructorID;
 		ArrayList<Course> Courses=new ArrayList<Course>();
 		try {
 			CallableStatement Call=conn.prepareCall(query);
+			CallableStatement Call2=conn.prepareCall(query2);
+			CallableStatement Call3=conn.prepareCall(query3);
 			Call.setInt(1,userid);
 			Call.execute();
 			ResultSet rs=Call.getResultSet();
@@ -169,7 +174,18 @@ public class UserDAO
 				int NumberOfInstructors=rs.getInt("NumberOfInstructors");
 				Course course = new Course(Courseid,CourseName,Field, StartDate, EndDate, Duration,NumberOfStudents,NumberOfInstructors);
 				Courses.add(course);
-				
+				Call2.setInt(1, Courseid);
+				Call2.registerOutParameter(2, Types.INTEGER);
+				Call2.executeUpdate();
+				InstructorID = Call2.getInt(2);
+				System.out.println(InstructorID);
+				Call3.setInt(1, InstructorID);
+				Call3.execute();
+				ResultSet rs2 = Call3.getResultSet();
+				String InstructorName = rs2.getString("fullname");
+				String Photo=getBase64Img(rs2.getBlob("Photo"));
+				System.out.println("Fuck");
+				course.setInstructor(new Instructor(InstructorID,InstructorName,Photo));
 			}
 		} catch (SQLException e){
 			e.printStackTrace();	

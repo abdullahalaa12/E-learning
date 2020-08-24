@@ -26,6 +26,11 @@ public abstract class User
 	private ArrayList<Course> Courses;
 	
 	
+	public User(int id,String fullname,String Photo) {
+		this.id = id;
+		this.fullname = fullname;
+		this.Photo = Photo;
+	}
 	public User(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
 			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender,ArrayList<Course> Courses)
 	{
@@ -192,6 +197,9 @@ class Student extends User
 
 class Instructor extends User
 {
+	public Instructor(int id,String fullname,String Photo) {
+		super(id, fullname, Photo);
+	}
 	public Instructor(int id,String Email,String Password,String fullname,String Nationality,String Phone,Date Birthdate,int Age,
 			String Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String Gender,ArrayList<Course> Courses)
 	{

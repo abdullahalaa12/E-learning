@@ -1,6 +1,9 @@
 package com.coursera.Course;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import com.coursera.User.User;
 
 public class Course {
 	private int CourseID;
@@ -12,7 +15,8 @@ public class Course {
 	public static int NumberOfCourses=0;
 	private int NumberOfStudents;
 	private int NumberOfInstructors;
-	
+	private User Instructor;
+
 	public Course(int CourseID,String Name,String Field,Date StartDate,Date EndDate,Date Duration,int NumberOfStudents,int NumberOfInstructors){
 		NumberOfCourses+=1;
 		this.CourseID=CourseID;
@@ -23,6 +27,14 @@ public class Course {
 		this.Duration=Duration;
 		this.NumberOfStudents=NumberOfStudents;
 		this.NumberOfInstructors=NumberOfInstructors;
+	}
+	
+	public User getInstructor() {
+		return Instructor;
+	}
+
+	public void setInstructor(User instructor) {
+		Instructor = instructor;
 	}
 
 	public String getName() {

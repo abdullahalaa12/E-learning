@@ -65,15 +65,21 @@
        </div>
        <div id="Dashboard" class="page">
        </div>
-       <div id="Courses" class="page">   
+       <div id="Courses" class="page">
+       <c:if test="${Member.getUserType() == 'Instructor'}">
+    	<button class="ShowFormbtn" onclick="ShowForm('FileForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>	
+    		<div id="CourseDiv"></div>
+		</c:if>
   		<c:forEach items="${Member.getCourses()}" var="course">
 				<div class="CourseBox">
+				<div class="CourseImg"></div>
 				<p>${course.getCourseID()}</p><br>
 				<p>${course.getName()}</p>
 				<form action="/Main/Course">
-				<input value="Enroll" name="FunctionType">
-				<input value="${course.getCourseID()}" name="CourseID">
-				<button id="CourseButton" name="CourseID" value="${course.getCourseID()}">Enroll</button>
+				<div class="InstructorImg" style="background-image: url(${course.getInstructor().getPhoto()})"></div>
+				<label class="InstructorName">${course.getInstructor().getFullname()}</label>
+				<input value="${course.getCourseID()}" name="CourseID" hidden="hidden">
+				<button id="CourseButton" name="CourseID" value="${course.getCourseID()}"><i class="fas fa-sign-in-alt"></i></button>
 				</form>
 				</div>
 			</c:forEach>
@@ -229,6 +235,9 @@
        <div id="Grades" class="page"></div>
    </div>
         <script src="/resources/js/Script.js"></script>
+        <script type="text/javascript">
+        	
+        </script>
 <!--<img src="${Member.getPhoto()}" /><br>
 <p>${Member.getId() }</p><br>
 <p>${Member.getFullname() }</p><br>
