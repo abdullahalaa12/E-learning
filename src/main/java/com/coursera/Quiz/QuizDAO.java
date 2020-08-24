@@ -95,6 +95,8 @@ public class QuizDAO
 	public void addgrade(int quiz_id , ArrayList<Integer> correct , ArrayList<Integer > user_choise , int user_id)
 	{
 
+		try
+		{
 		float cnt = 0;
 		for (int i=0;i<correct.size();i++)
 		{
