@@ -81,16 +81,76 @@ public class QuizDAO
 		    String title = rs.getString(2);
 		    Quiz q =new Quiz(q_id,title,course_id);
 			Q.add(q);
-			q.setQues(getQuestion(q_id));			
+			q.setQues(getQuestion(q_id));
 			}
-			
-		}
+			}
+		
 		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
 		return Q;
 	}
+	
+	public void addgrade(int quiz_id , ArrayList<Integer> correct , ArrayList<Integer > user_choise , int user_id)
+	{
+
+		float cnt = 0;
+		for (int i=0;i<correct.size();i++)
+		{
+			 
+			    if (correct.get(i) == user_choise.get(i)) cnt++;			
+		}
+		float grade = ((float)(cnt*100.0 / correct.size()));
+		
+		String query = "{call addgrade(?,?,?)}";
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, user_id);
+		Call.setInt(2, quiz_id);
+		Call.setFloat(3, grade);
+		Call.execute();		
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		
+     	}
+	
+	public ArrayList<Float> getgrade(int user_id , int course_id)
+	{
+		ArrayList<Float> f = new ArrayList<Float>();
+		try
+		{
+			String query = "{call getgrade(?,?)}";
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, course_id);
+			Call.setInt(2, user_id);
+			Call.execute();
+			ResultSet rs = Call.getResultSet();
+			while(rs.next())
+			{
+			float grade = rs.getFloat(1);
+			f.add(grade);
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		
+	return f;
+	}
+	
+	
+	
+
+	
+	
+	
+	
 
 	public ArrayList<Question> getQuestion(int quiz_id)
 	{
