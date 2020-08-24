@@ -149,8 +149,40 @@ public class UserDAO
 		
 		return Base64Img;
 	}
-	public void AddCourse(int CourseID,String Name,String Field,Date StartDate,Date EndDate,Date Duration) {}
-	public void DeleteCourse() {}
+	public void AddCourse(int person_id,String Name,String Field,Date StartDate,Date EndDate , Date Duration) 
+	{
+		String query="{call AddCourse(?,?,?,?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setString(1,Name);
+			Call.setString(2,Field);
+			Call.setDate(3, StartDate);
+			Call.setDate(4, EndDate);
+			Call.setDate(5, Duration);
+			Call.setInt(6, person_id);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+		
+		
+	}
+	public void DeleteCourse(int course_id) 
+	{
+		String query="{call DeleteCourse(?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, course_id);
+			Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+
+	}
 	public ArrayList<Course> ShowCourses(int userid) {
 		
 		String query="{call ShowCourses(?)}";
@@ -205,9 +237,76 @@ public class UserDAO
 		
 	}
 	
-	public void AddAnnouncement() {}
-	public void DeleteAnnouncement() {}
-	public void ShowAnnouncements() {}
+	public void AddAnnouncement(String announce_text , Date date  , int course_id) 
+	{
+		String query="{call AddAnnouncement(?,?,?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setString(1, announce_text);
+		Call.setDate(2, date);
+		Call.setInt(3, course_id);
+		Call.execute();
+		
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+
+	}
+	public void DeleteAnnouncement(int announce_id)
+	{
+		String query="{call DeleteAnnouncement(?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, announce_id);
+		Call.execute();
+		}
+	  catch (SQLException e) {
+		e.printStackTrace();
+	} 
+		
+	}
+	
+	public void ModifyAnnouncement(int announce_id , String newannounce_text) 
+	{
+		String query="{call ModifyAnnouncement(?,?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, announce_id);
+		Call.setString(2, newannounce_text);
+		Call.execute();
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+		
+	}
+	
+	public ArrayList<String> getannouncement(int course_id)
+	{
+		ArrayList<String> ann = new ArrayList<String>();
+		String query="{call getannouncement(?)}";
+		try
+		{
+		CallableStatement Call = conn.prepareCall(query);
+		Call.setInt(1, course_id);
+		Call.execute();
+		ResultSet rs = Call.getResultSet();
+		while(rs.next())
+		{
+			String announce = rs.getString(2);
+			ann.add(announce);
+		}
+		}
+		catch (SQLException e){
+			e.printStackTrace();	
+		}
+		return ann;
+	}
+	
 	public void editfullname(int userid , String fullname)
 	{
 		String query="{call editfullname(?,?)}";
