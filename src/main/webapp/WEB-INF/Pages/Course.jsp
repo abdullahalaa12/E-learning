@@ -90,6 +90,23 @@
             </c:forEach>
        </div>
        <div id="Quizes" class="page">
+       <c:if test="${Member.getUserType() == 'Instructor'}">
+           <button class="ShowFormbtn" onclick="ShowForm('QuizForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>
+           <div id="QuizForm">
+                   <button class="CloseFormbtn" onclick="CloseForm('QuizForm')"><i class="fas fa-times"></i></button>
+                   <Label id="QuizInfo">Quiz Information</Label>
+		           <button onclick="AddQuestion()" class="AddQuestion">Add Question</button>
+					<form action="/Main/Course/AddQuiz" method="post">
+					<br>
+					<div id="form-div" class="Quiz-form-class"></div>
+					<input id="counter" type="hidden" name="QuestionCounter" value="0"/>
+					<input type="submit" value="Upload Quiz"><br>    
+					</form>
+					<br>
+            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data">
+           </form>   
+           </div>
+        </c:if>
        	<c:forEach items="${QuizesArray }" var="quiz">
             	<p>
             		<a href="/Main/Course/ViewQuiz?QuizID=${quiz.getQuiz_id() }">${quiz.getTitle() }</a>
@@ -119,16 +136,27 @@
         <script type="text/javascript">
             function ShowForm(FormName){
                 var FileForm = document.getElementById(FormName);
-                FileForm.style.width = "700px";
                 FileForm.style.borderLeft = "1px solid rgb(44,58,71)";
+
+            	if(FormName ==="QuizForm"){
+                    FileForm.style.width = "80%";
+                    document.getElementById("QuizInfo").style.display = "block";
+            	}
+            	else
+                	FileForm.style.width = "700px";
             }
             function CloseForm(FormName){
                 var FileForm = document.getElementById(FormName);
                 FileForm.style.width="0";
                 FileForm.style.border = "none";
+                document.getElementById("QuizInfo").style.display = "none";
             }
-            function GoToFile() {
-            	document.getElementById();				
+            function FileInputClicked(){
+            	document.document.getElementById("file").click();
+            }
+            function loadFile2(event) {
+            	document.getElementById("FileValue").innerHTML = document.getElementById("file").value.match( /[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+
 			}
         </script>
 </body>

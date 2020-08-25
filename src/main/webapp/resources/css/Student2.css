@@ -9,7 +9,6 @@ body
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-y: scroll;    
 }
 #Menu{
     width:20%;
@@ -26,7 +25,7 @@ body
 }
 #Bar{
     width: 100%;
-    height: 80px;
+    height: 8%;
     background-color: white;
     border-bottom: 1px solid #858796;
     position: relative;
@@ -255,11 +254,12 @@ border-radius: 20px;
 }
 #Files{
     width: 100%;
-    height: 300vh;
+    height: 91%;
     background-color: #f1f2f6;
     display: none;
+    overflow-y: scroll;
 }
-#Files .ShowFormbtn{
+.ShowFormbtn{
     display: block;
     outline: none;
     border: none;
@@ -278,7 +278,7 @@ border-radius: 20px;
     top: 15px;
     right:90px;
 }
-#Files .CloseFormbtn{
+.CloseFormbtn{
     display: block;
     outline: none;
     border: none;
@@ -482,17 +482,46 @@ font-family: 'Ubuntu', sans-serif;
     margin: auto;
     
 } 
-#Videos{
-    width: 100%;
-    height: 130vh;
-    background-color: #f1f2f6;
-    display: block;
-}
 #Quizes{
     width: 100%;
-    height: 130vh;
+    height: 91.8%;
     background-color: #f1f2f6;
     display: block;
+    overflow-y:scroll; 
+}
+#Quizes #QuizForm{
+	width: 0;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    transition: all 0.5s ease;
+}
+#Quizes #QuizForm #QuizInfo{
+	font-family: 'Work Sans', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    margin: auto;
+    top: 10%;
+   	left: 50%;
+   	transform:translateX(-50%);
+   	display: none;
+    
+ /*   top: 10%;
+    left: 50%;
+    transform:translate(-50%,-50%);*/
+}
+#form-div{
+	background-color: green;
+	width: 80%;
+	height: 50%;
+	margin: auto;
+	position: absolute;
+	top: 20%;
+	left: 0;
+	right: 0;
 }
 #Profile .ProPho-Background{
     width: 100%;
@@ -548,9 +577,10 @@ font-family: 'Ubuntu', sans-serif;
 }
 #Announcements{
     width: 100%;
-    height: 500vh;
+    height: 91.8%;
     background-color: chartreuse;
     display: none;
+    overflow-y:scroll; 
 }
 #Announcements div{
     position: relative;
@@ -562,9 +592,10 @@ font-family: 'Ubuntu', sans-serif;
 }
 #Grades{
     width: 100%;
-    height: 600vh;
+    height: 91.8%;
     background-color: darkred;
     display: none;
+    overflow-y:scroll; 
 }
 #Page-Content #Profile .info-container{
     background-color: transparent;
