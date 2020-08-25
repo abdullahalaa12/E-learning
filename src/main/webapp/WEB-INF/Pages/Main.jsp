@@ -58,25 +58,25 @@
     	<button class="ShowFormbtn" onclick="ShowForm('CourseForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>	
     		<div id="CourseForm">
             <button class="CloseFormbtn" onclick="CloseForm('CourseForm')"><i class="fas fa-times"></i></button>
-            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data">
+            <form action="/Main/Course/AddCourse" method="post" enctype="multipart/form-data">
                 <Label id="CourseInfo">Course Information</Label>
                 <input type="text" name="CourseName" id="CourseName" placeholder="Name">
                 <input type="text" name="CourseField" id="CourseField" placeholder="Field">
                 <div id="StartDate-div">
                     <label>Start Date</label><br>
-		            <select name="BirthDay" id="days">
+		            <select name="StartDay" id="days">
 		        	    <option>Day</option>
 		           		<c:forEach var = "i" begin = "1" end = "31">
 		        			<option value="${i }">${i }</option>
 		     	 		</c:forEach>
 		     	 	</select>
-		            <select name="BirthMonth" id="months">
+		            <select name="StartMonth" id="months">
 		                <option>Month</option>
 		           		<c:forEach var = "i" begin = "1" end = "12">
 		        			<option value="${i }">${i }</option>
 		     	 		</c:forEach>
 		     	 	</select>
-		            <select name="BirthYear" id="years">
+		            <select name="StartYear" id="years">
 		                <option>Year</option>
 		           		<c:forEach var = "i" begin = "1900" end = "2020">
 		        			<option value="${i }">${i }</option>
@@ -85,19 +85,19 @@
             	</div>
             	<div id="EndDate-div">
             	    <label>End Date</label><br>
-		            <select name="BirthDay" id="days">
+		            <select name="EndDay" id="days">
 		            	<option>Day</option>
 		           		<c:forEach var = "i" begin = "1" end = "31">
 		        			<option value="${i }">${i }</option>
 		     	 		</c:forEach>
 		     	 	</select>
-		            <select name="BirthMonth" id="months">
+		            <select name="EndMonth" id="months">
 		            <option>Month</option>
 		           		<c:forEach var = "i" begin = "1" end = "12">
 		        			<option value="${i }">${i }</option>
 		     	 		</c:forEach>
 		     	 	</select>
-		            <select name="BirthYear" id="years">
+		            <select name="EndYear" id="years">
 		            <option>Year</option>
 		           		<c:forEach var = "i" begin = "1900" end = "2020">
 		        			<option value="${i }">${i }</option>

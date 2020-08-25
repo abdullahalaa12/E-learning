@@ -149,7 +149,7 @@ public class UserDAO
 		
 		return Base64Img;
 	}
-	public void AddCourse(int person_id,String Name,String Field,Date StartDate,Date EndDate , Date Duration) 
+	public void AddCourse(int person_id,String Name,String Field,LocalDate StartDate,LocalDate EndDate , Date Duration) 
 	{
 		String query="{call AddCourse(?,?,?,?,?,?)}";
 		try
@@ -157,8 +157,8 @@ public class UserDAO
 			CallableStatement Call = conn.prepareCall(query);
 			Call.setString(1,Name);
 			Call.setString(2,Field);
-			Call.setDate(3, StartDate);
-			Call.setDate(4, EndDate);
+			Call.setDate(3, Date.valueOf(StartDate));
+			Call.setDate(4, Date.valueOf(EndDate));
 			Call.setDate(5, Duration);
 			Call.setInt(6, person_id);
 			Call.execute();
@@ -222,7 +222,7 @@ public class UserDAO
 				if (rs2.next())
 				{
 				String InstructorName = rs2.getString("fullname");
-				String InstructorPhoto=getBase64Img(rs2.getBlob("Photo"));
+				String InstructorPhoto="data:image/jpg;base64,"+getBase64Img(rs2.getBlob("Photo"));
 				System.out.println(InstructorName);
 				course.setInstructor(new Instructor(InstructorID,InstructorName,InstructorPhoto));
 				}	
