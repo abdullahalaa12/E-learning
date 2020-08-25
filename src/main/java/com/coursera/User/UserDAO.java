@@ -214,7 +214,6 @@ public class UserDAO
 				if (ds.next())
 				{
 				InstructorID = ds.getInt(1);
-				System.out.println(InstructorID);
 				CallableStatement Call3=conn.prepareCall(query3);
 				Call3.setInt(1, InstructorID);
 				Call3.execute();
@@ -223,7 +222,6 @@ public class UserDAO
 				{
 				String InstructorName = rs2.getString("fullname");
 				String InstructorPhoto=getBase64Img(rs2.getBlob("Photo"));
-				System.out.println(InstructorName);
 				course.setInstructor(new Instructor(InstructorID,InstructorName,InstructorPhoto));
 				}	
 				}

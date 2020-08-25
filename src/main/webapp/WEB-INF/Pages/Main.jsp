@@ -58,7 +58,7 @@
     	<button class="ShowFormbtn" onclick="ShowForm('CourseForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>	
     		<div id="CourseForm">
             <button class="CloseFormbtn" onclick="CloseForm('CourseForm')"><i class="fas fa-times"></i></button>
-            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data">
+            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data" class="AddCourseForm">
                 <Label id="CourseInfo">Course Information</Label>
                 <input type="text" name="CourseName" id="CourseName" placeholder="Name">
                 <input type="text" name="CourseField" id="CourseField" placeholder="Field">
@@ -112,18 +112,27 @@
            </form>   
            </div>
 		</c:if>
+		 <c:if test="${Member.getUserType() == 'Student'}">
+		 <form action="" class="CourseIDForm">
+		 	<input type="text" placeholder="Enter Course ID" class="CourseIDInput" required>
+		 	<button class="ShowCourseIDbtn" type="submit"><strong>Enroll</strong>&nbsp;</button>
+		  </form>	
+		 </c:if>
   		<c:forEach items="${Member.getCourses()}" var="course">
 				<div class="CourseBox">
 				<div class="CourseImg"></div>
 				<p>${course.getCourseID()}</p><br>
 				<p>${course.getName()}</p>
-				<form action="/Main/Course" method="post">
+				<form action="/Main/Course" method="post" class="TakeCourseIDForm">
 				<input value="${course.getCourseID()}" name="CourseID" type="hidden">
 				<button id="GoToCoursebtn" type="submit"><i class="fas fa-sign-in-alt"></i></button>
 				<button id="DeleteCoursebtn" type="submit"><i class="fas fa-trash-alt"></i></button>
+				<div class="InstructorImg"></div>
 				</form>
-				<div class="InstructorImg" style="background-image: url(${course.getInstructor().getPhoto()})"></div>
-				<label class="InstructorName">${course.getInstructor().getFullname()}</label>
+				<label class="InstructorName">${course.getInstructor().getFullname() }</label>
+				<label class="CourseName">${course.getName()}</label>
+				<label class="CourseField">${course.getField()}</label>
+				<label class="CourseEndDate">${course.getEndDate()}</label>
 				</div>
 			</c:forEach>
        </div>

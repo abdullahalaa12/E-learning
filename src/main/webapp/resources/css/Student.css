@@ -263,6 +263,7 @@ border-radius: 20px;
 	width:400px;
 	height:300px;
 	margin: 50px;
+	margin-top:120px;
 	border: 1px solid #ced6e0;
 }
 #Courses,#Dashboard p{
@@ -277,33 +278,60 @@ border-radius: 20px;
 	bottom: 0;
 	background-color: white;
 }
-#Courses form{
+#Courses .TakeCourseIDForm{
 	position: absolute;
 	width:100%;
 	height:30%;
 	bottom: 0;
 	background-color: white;
 }
-#Courses form .InstructorImg{
+#Courses .TakeCourseIDForm .InstructorImg{
 	position: absolute;
-	width:50px;
-	height: 50px;
-	border-radius: 30px;
-	left: 20px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+	width:90px;
+	height: 100%;
+	/*border-radius: 30px;*/
+	left:0;
+	background:url("../images/a.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 }
-#Courses form .InstructorName{
+#Courses .CourseName{
 	position: absolute;
 	font-family: 'Work Sans', sans-serif;
-    font-size: 20px;
-    color: purple;
-    left: 80px;
-    top: 30px;
+    font-size: 12px;
+    color: rgb(44,58,71);
+    left: 25%;
+    bottom: 15%;
+        opacity: 0.5;
+    
+}
+#Courses .CourseField{
+	position: absolute;
+	font-family: 'Work Sans', sans-serif;
+    font-size: 12px;
+    color: rgb(44,58,71);
+    left: 25%;
+    bottom: 10%;
+    opacity: 0.5;
+    
+}
+#Courses .CourseEndDate{
+	position: absolute;
+	font-family: 'Work Sans', sans-serif;
+    font-size: 12px;
+    color: rgb(44,58,71);
+    left: 25%;
+    bottom: 5%;
+    opacity: 0.5;
+}
+#Courses .InstructorName{
+	position: absolute;
+	font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    color: rgb(44,58,71);
+    left: 25%;
+    bottom: 20%;
 }
 /*#Courses .CreateCoursebtn{
 	background-color: black;
@@ -351,7 +379,7 @@ border-radius: 20px;
     background-color: white;
     transition: all 0.5s ease;
 }
-#Courses #CourseForm form{
+#Courses #CourseForm .AddCourseForm{
     width: 80%;
     height: 80%;
     position: absolute;
@@ -383,7 +411,7 @@ border-radius: 20px;
     top: 30px;
     left:40px;
 }
-#Courses #CourseForm form #CourseInfo{
+#Courses #CourseForm .AddCourseForm #CourseInfo{
     font-family: 'Work Sans', sans-serif;
     font-size: 30px;
     position: relative;
@@ -392,7 +420,7 @@ border-radius: 20px;
     color:rgb(44,58,71) ;
 
 }
-#Courses #CourseForm form #CourseName{
+#Courses #CourseForm .AddCourseForm #CourseName{
     width: 80%;
     height: 30px;
     position: relative;
@@ -413,7 +441,7 @@ border-radius: 20px;
     transition: all 0.25s ease;
     display: block;
 }
-#Courses #CourseForm form #CourseField{
+#Courses #CourseForm .AddCourseForm #CourseField{
 	width: 80%;
     height: 30px;
     position: relative;
@@ -452,7 +480,7 @@ border-radius: 20px;
     color: rgb(44,58,71);
     font-size: 20px;
 }
-#Courses #CourseForm form #ImgCourse{
+#Courses #CourseForm .AddCourseForm #ImgCourse{
 	width: 80%;
 	height: 32%;
 	background-color: #dfe4ea;
@@ -462,6 +490,53 @@ border-radius: 20px;
 	right: 0;
 	margin: auto;
 	cursor: pointer;
+}
+#Courses .CourseIDForm{
+	width: 50%;
+	height: 2%;
+	background-color: transparent;
+	position: absolute;
+	top: 1%;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+#Courses .CourseIDForm .ShowCourseIDbtn{ 
+	display: block;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: 200%;
+    margin: auto;
+    top: 0;
+    bottom:0;
+    right:90px;
+	
+}
+#Courses .CourseIDForm .CourseIDInput{
+	position: absolute;
+	transform:translate(-50%,-50%);
+	top:50%;
+	left:40%;
+	width: 60%;
+	height: 45%;
+	border: 1px solid #dfe4ea;
+	border-radius: 10px;
+	outline: none;
+	padding: 5px;
+}
+#Courses .CourseIDForm .CourseIDInput:focus{
+	border-color: rgb(44,58,71);
+	box-shadow: 0 0 3px 0 rgb(44,58,71);
 }
 #UploadFilebtn i{
     position: absolute;
@@ -481,10 +556,10 @@ border-radius: 20px;
     top: 85%;
     left: 18%;
 }
-#Courses #CourseForm form .ImgCourse:hover{
+#Courses #CourseForm .AddCourseForm .ImgCourse:hover{
 	border: 2px dotted rgb(44,58,71);
 }
-#Courses #CourseForm form #CourseSubmit{
+#Courses #CourseForm .AddCourseForm #CourseSubmit{
     display: block;
     outline: none;
     border: none;
@@ -505,7 +580,7 @@ border-radius: 20px;
     font-size: 20px;
     text-align: center;
 }
-#Courses #CourseForm form #CourseSubmit:hover{
+#Courses #CourseForm . #CourseSubmit:hover{
 	background-position: 100%;
 	
 }

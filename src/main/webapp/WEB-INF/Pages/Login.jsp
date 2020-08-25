@@ -28,11 +28,11 @@
                     <img src="/resources/images/pf.svg">
                 </div>
                 <form class="loginform" action="/login" method="post">
-                <input name="name" id="input-field1" type="text" placeholder="Username"><br>
-                <input name="password" id="input-field2" type="password" placeholder="Password">
+                <input name="name" id="input-field1" type="text" placeholder="Username" required><br>
+                <input name="password" id="input-field2" type="password" placeholder="Password" required>
                 <a href="#" class="Forget">Forget Password ?</a>
             </div>
-            <button class="login">Login</button>
+            <button class="login" type="submit">Login</button>
             </form>
             <button id="eye-visible" onclick="hidePass()"><i class="far fa-eye"></i></button>
             <button id="eye-hide" onclick="showPass()"><i class="far fa-eye-slash"></i></button>
