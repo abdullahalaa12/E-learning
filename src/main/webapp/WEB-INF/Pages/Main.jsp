@@ -123,16 +123,16 @@
 				<div class="CourseImg"></div>
 				<p>${course.getCourseID()}</p><br>
 				<p>${course.getName()}</p>
-				<div class=" TakeCourseIDForm">
+				<form class=" TakeCourseIDForm" action="/Main/Course" method="post">
 				<input value="${course.getCourseID()}" name="CourseID" type="hidden">
 				<button id="GoToCoursebtn" type="submit"><i class="fas fa-sign-in-alt"></i></button>
-				<button id="DeleteCoursebtn" type="submit"><i class="fas fa-trash-alt"></i></button>
+				<button id="DeleteCoursebtn" type="button"><i class="fas fa-trash-alt"></i></button>
 				<div class="InstructorImg"><img src="${course.getInstructor().getPhoto() }"/></div>
 				<label class="InstructorName">${course.getInstructor().getFullname() }</label>
 				<label class="CourseName">${course.getName()}</label>
 				<label class="CourseField">${course.getField()}</label>
 				<label class="CourseEndDate">${course.getEndDate()}</label>
-				</div>
+				</form>
 				</div>
 			</c:forEach>
        </div>
