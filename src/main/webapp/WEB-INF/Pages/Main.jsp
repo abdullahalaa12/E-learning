@@ -123,11 +123,12 @@
 				<div class="CourseImg"></div>
 				<p>${course.getCourseID()}</p><br>
 				<p>${course.getName()}</p>
-				
+				<div id="TakeCourseIDForm">
 				<input value="${course.getCourseID()}" name="CourseID" type="hidden">
 				<button id="GoToCoursebtn" type="submit"><i class="fas fa-sign-in-alt"></i></button>
 				<button id="DeleteCoursebtn" type="submit"><i class="fas fa-trash-alt"></i></button>
-				<div class="InstructorImg"><img src="${course.getInstructor().getPhoto() }"/></div>
+				<div class="InstructorImg" style="background-image: url(${course.getInstructor().getPhoto() })"></div>
+				</div>
 				<label class="InstructorName">${course.getInstructor().getFullname() }</label>
 				<label class="CourseName">${course.getName()}</label>
 				<label class="CourseField">${course.getField()}</label>
