@@ -214,7 +214,6 @@ public class UserDAO
 				if (ds.next())
 				{
 				InstructorID = ds.getInt(1);
-				System.out.println(InstructorID);
 				CallableStatement Call3=conn.prepareCall(query3);
 				Call3.setInt(1, InstructorID);
 				Call3.execute();
@@ -222,8 +221,12 @@ public class UserDAO
 				if (rs2.next())
 				{
 				String InstructorName = rs2.getString("fullname");
+<<<<<<< HEAD
 				String InstructorPhoto="data:image/jpg;base64,"+getBase64Img(rs2.getBlob("Photo"));
 				System.out.println(InstructorName);
+=======
+				String InstructorPhoto=getBase64Img(rs2.getBlob("Photo"));
+>>>>>>> bec3a7a4f5dd5394bd172cfb60f86777d155db0e
 				course.setInstructor(new Instructor(InstructorID,InstructorName,InstructorPhoto));
 				}	
 				}

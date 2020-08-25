@@ -62,10 +62,10 @@
             <button class="CloseFormbtn" onclick="CloseForm('FileForm')"><i class="fas fa-times"></i></button>
             <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data">
                 <Label id="FileInfo">File Information</Label>
-                <input type="text" name="FileTitle" id="FileTitle" placeholder="File Title">
+                <input type="text" name="FileTitle" id="FileTitle" placeholder="File Title" required>
                 <Label for="file" id="UploadFilebtn" onclick="FileInputClicked()"><i class="fas fa-upload"></i></Label>
                 <Label id="FileValue">No File Added</Label>
-                <input type="file" name="UploadedFile" id="file"  hidden="hidden" onchange="loadFile2(event)">
+                <input type="file" name="UploadedFile" id="file"  hidden="hidden" onchange="loadFile2(event)" required>
                 <select  id="FileType">
                     <option value="Word">Word</option>
                     <option value="PPtx">PPtx</option>
