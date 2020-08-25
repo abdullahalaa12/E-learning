@@ -557,6 +557,22 @@ public class UserDAO
 		catch (SQLException e){
 			e.printStackTrace();	
 		}		
+	}
+	public void Enrollcourse(int course_id , int user_id)
+	{
+		String query="{call AddCourseToPerson(?,?)}";
+		try
+		{
+			CallableStatement Call = conn.prepareCall(query);
+			Call.setInt(1, user_id);
+			Call.setInt(2, course_id);
+			Call.execute();
 		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
 
 }
