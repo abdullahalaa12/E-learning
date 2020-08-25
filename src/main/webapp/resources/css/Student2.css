@@ -431,13 +431,13 @@ border-radius: 20px;
 }
 #Files .FileBox{
 	width:90%;
-    height:2%;
+    height:6%;
     background-color:white;
     position:relative;
     display:inline-flex;
     margin:auto;
     transform:translate(-50%,-50%);
-    top:4%;
+    top:12%;
     left:50%;
     margin-bottom :15px;
     border-top-left-radius: 10px;
