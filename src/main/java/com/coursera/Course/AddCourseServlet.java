@@ -46,5 +46,6 @@ public class AddCourseServlet extends HttpServlet{
 		dao.AddCourse(user.getId(), CourseName, CourseField, LocalDate.of(Integer.parseInt(StartYear), Integer.parseInt(StartMonth), Integer.parseInt(StartDay)), 
 				LocalDate.of(Integer.parseInt(EndYear), Integer.parseInt(EndMonth), Integer.parseInt(EndDay)), new Date(2000,1,1));
 		user.setCourses(dao.ShowCourses(user.getId()));
+		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
 	}
 }

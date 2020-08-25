@@ -23,9 +23,9 @@ public class CourseEnrollServlet extends HttpServlet{
 		UserDAO dao=new UserDAO();
 		User user=(User)request.getSession().getAttribute("Member");
 		
-		//dao.enroll(CourseID,user.getId());
+		dao.Enrollcourse(CourseID,user.getId());
 		user.setCourses(dao.ShowCourses(user.getId()));
-		response.sendRedirect("/Main/Course");
+		response.sendRedirect("/Main");
 	}
 	
 }
