@@ -117,18 +117,17 @@
             </c:forEach>
        </div>
        <div id="Announcements" class="page">
-           <div id="ann1">
-               <header>Hello World</header>
-               <p>Customer testimonials are a tried and true way to demonstrate the effectiveness and popularity of a product. Call on your customers to submit testimonials that you can then use to let their talking speak for your product.
-                It also helps build trust in a company and give faces to the name when you showcase your employees on your "About Us" page. Your customers will enjoy seeing that glimpse into your company, and it will remind them that there are real people behind the product.</p>
-                <button onclick="bigdiv('ann1')">Click me</button>
-            </div>
-            <div id="ann2">
-                <header>Hello World</header>
-                <p>Customer testimonials are a tried and true way to demonstrate the effectiveness and popularity of a product. Call on your customers to submit testimonials that you can then use to let their talking speak for your product.
-                 It also helps build trust in a company and give faces to the name when you showcase your employees on your "About Us" page. Your customers will enjoy seeing that glimpse into your company, and it will remind them that there are real people behind the product.</p>
-                 <button>Click me</button>
-            </div>
+        <c:if test="${Member.getUserType() == 'Instructor'}">
+           <button class="ShowFormbtn" onclick="ShowForm('AnnouncementForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>
+           <div id="AnnouncementForm">
+            <button class="CloseFormbtn" onclick="CloseForm('AnnouncementForm')"><i class="fas fa-times"></i></button>
+            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data">
+                <Label id="AnnounceInfo">Announcement Information</Label>
+              	<textarea name="" id="AnnouncementMessage" placeholder="Your Announcement"></textarea>
+                <button id="AnnouncementSubmit" type="submit" onclick="ShowFile()">Submit</button>
+           </form>   
+           </div>
+        </c:if>
        </div>
        <div id="Grades" class="page"></div>    
    </div>
