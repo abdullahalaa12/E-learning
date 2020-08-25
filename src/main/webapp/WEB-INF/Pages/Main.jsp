@@ -58,11 +58,7 @@
     	<button class="ShowFormbtn" onclick="ShowForm('CourseForm')"><strong><i class="fas fa-plus"></i></strong>&nbsp;</button>	
     		<div id="CourseForm">
             <button class="CloseFormbtn" onclick="CloseForm('CourseForm')"><i class="fas fa-times"></i></button>
-<<<<<<< HEAD
-            <form action="/Main/Course/AddCourse" method="post" enctype="multipart/form-data">
-=======
-            <form action="/Main/Course/AddFile" method="post" enctype="multipart/form-data" class="AddCourseForm">
->>>>>>> bec3a7a4f5dd5394bd172cfb60f86777d155db0e
+            <form action="/Main/Course/AddCourse" method="post" enctype="multipart/form-data" class="AddCourseForm">
                 <Label id="CourseInfo">Course Information</Label>
                 <input type="text" name="CourseName" id="CourseName" placeholder="Name">
                 <input type="text" name="CourseField" id="CourseField" placeholder="Field">
