@@ -126,7 +126,9 @@
 				<form class=" TakeCourseIDForm" action="/Main/Course" method="post">
 				<input value="${course.getCourseID()}" name="CourseID" type="hidden">
 				<button id="GoToCoursebtn" type="submit"><i class="fas fa-sign-in-alt"></i></button>
-				<button id="DeleteCoursebtn" type="button"><i class="fas fa-trash-alt"></i></button>
+				<c:if test="${Member.getUserType() == 'Instructor'}">
+					<a href="/Main/Course/DeleteCourse?CourseID=${course.getCourseID() }"><button id="DeleteCoursebtn" type="button"><i class="fas fa-trash-alt"></i></button></a>
+				</c:if>
 				<div class="InstructorImg"><img src="${course.getInstructor().getPhoto() }"/></div>
 				<label class="InstructorName">${course.getInstructor().getFullname() }</label>
 				<label class="CourseName">${course.getName()}</label>
