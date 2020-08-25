@@ -581,17 +581,64 @@ font-family: 'Ubuntu', sans-serif;
 #Announcements{
     width: 100%;
     height: 91.8%;
-    background-color: chartreuse;
+    background-color: #f1f2f6;
     display: none;
     overflow-y:scroll; 
 }
-#Announcements div{
-    position: relative;
-    display: inline-block;
+#Announcements #AnnouncementForm{
+	width: 0;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
     background-color: white;
-    border: 2px solid var(--gray);
-    width: 100%;
-    height: 5%;
+    transition: all 0.5s ease;
+}
+#AnnouncementSubmit{
+	 display: block;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    background: linear-gradient(120deg,rgb(214,162,232),rgb(44,58,71));
+    border-radius: 30px;
+    position: absolute;
+    margin: auto;
+    top: 70%;
+    left: 55%;
+    width: 30%;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: 200%;
+    font-size: 20px;
+    text-align: center;
+}
+#AnnouncementMessage{
+	display: block;
+    color: #2C3A47;
+    width: 70%;
+    height: 40%;
+    outline: none;
+    background-color: transparent;
+    border: 3px solid #dfe4ea;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Alfa Slab One', cursive;
+    transition: 0.25s;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    margin: auto;
+    top: 25%;
+    left:0;
+    right:0;
+    resize: none;
+}
+#AnnouncementMessage:focus{
+	border-color: rgb(44,58,71);
+	box-shadow: 0 0 1px 0 rgb(44,58,71);
 }
 #Grades{
     width: 100%;
