@@ -13,6 +13,7 @@ import javax.servlet.http.Part;
 
 
 @WebServlet(urlPatterns = "/EditProfile")
+@MultipartConfig(maxFileSize = 4194304)
 public class EditProfileServlet extends HttpServlet{
 	
 	@Override
@@ -32,6 +33,11 @@ public class EditProfileServlet extends HttpServlet{
 
 		switch(column)
 		{
+		case "Photo":
+			Part Photo=request.getPart("Photo");
+			dao.editPhoto(user.getId(),Photo);
+			user.setPhoto(dao.getBase64Img(Photo.getInputStream()));
+			break;
 		case "FullName":
 			dao.editfullname(user.getId(), value);
 			user.setFullname(value);

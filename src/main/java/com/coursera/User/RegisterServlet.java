@@ -2,6 +2,8 @@ package com.coursera.User;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -32,21 +34,14 @@ public class RegisterServlet extends HttpServlet{
 		String LastName=request.getParameter("LastName");
 		String Nationality=request.getParameter("Nationality");
 		String Phone=request.getParameter("Phone");
-		String BirthDay=request.getParameter("BirthDay");
-		String BirthMonth=request.getParameter("BirthMonth");
-		String BirthYear=request.getParameter("BirthYear");
 		Part Photo=request.getPart("Photo");
 		int Educationlevel=-10;
-		String Company="Doesn't exist in the signup form";
-		String Joptitle="Doesn't exist in the signup form";
-		String Department="Doesn't exist in the signup form";
-		String Website="Doesn't exist in the signup form";
 		String TypeOfUser=request.getParameter("TypeOfUser");
 		String Gender=request.getParameter("Gender");
-
+		LocalDate BirthDate=LocalDate.parse(request.getParameter("Birthday"));
 		
-		boolean valid=DAO.Singup(Email, Password, FirstName, LastName, Nationality, Phone, BirthDay,
-				BirthMonth,BirthYear,Photo, Educationlevel, Company, Joptitle, Department, Website, TypeOfUser,Gender);
+		boolean valid=DAO.Singup(Email, Password, FirstName, LastName, Nationality, Phone, BirthDate,
+				Photo, Educationlevel, TypeOfUser,Gender);
 		if(valid==true)
 		{
 			System.out.println("Registerd");

@@ -28,15 +28,15 @@
                 <img src="/resources/images/pf.svg" alt="" id="image">
             </div>
             <div id="info-container">
-            <input name="FirstName" id="input-field1" type="text" placeholder="First Name">
-            <input name="LastName" id="input-field2" type="text" placeholder="Last Name"><br>
-            <input name="Password" id="input-field3" type="password" placeholder="Password">
-            <input id="input-field4" type="password" placeholder="Re-Password"><br>
-            <input name="Email" id="input-field5" type="text" placeholder="Email">
-            <input name="Phone" id="input-field6" type="text" placeholder="Phone"><br>
+            <input name="FirstName" id="input-field1" type="text" placeholder="First Name" required>
+            <input name="LastName" id="input-field2" type="text" placeholder="Last Name" required><br>
+            <input name="Password" id="input-field3" type="password" placeholder="Password"required>
+            <input id="input-field4" type="password" placeholder="Re-Password"required><br>
+            <input name="Email" id="input-field5" type="email" placeholder="Email"required>
+            <input name="Phone" id="input-field6" type="tel" pattern="01[0-2]{1}[0-9]{8}" placeholder="Phone"><br>
             <div id="Nationality-div">
             <label id="Nationality">Nationality</label><br>
-            <select name="Nationality" id="country-box"  class="form-control">
+            <select name="Nationality" id="country-box"  class="form-control" required>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -280,42 +280,27 @@
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            </select></div>
+            </select>
+            </div>
             <div id="Birthday-div">
-            <Label id="Dy">Day</Label>
-            <label id="Mo">Month</label>
-            <Label id="Yr">Year</Label><br>
-            <select name="BirthDay" id="days">
-           		<c:forEach var = "i" begin = "1" end = "31">
-        			<option value="${i }">${i }</option>
-     	 		</c:forEach>
-     	 	</select>
-            <select name="BirthMonth" id="months">
-           		<c:forEach var = "i" begin = "1" end = "12">
-        			<option value="${i }">${i }</option>
-     	 		</c:forEach>
-     	 	</select>
-            <select name="BirthYear" id="years">
-           		<c:forEach var = "i" begin = "1900" end = "2020">
-        			<option value="${i }">${i }</option>
-     	 		</c:forEach>
-     	 	</select>
+            <Label id="Yr">Birthday</Label><br> 
+            <input type="date" id="years" name="Birthday" required>
             </div>
             <div id="Gender-div">
                 <Label>Gender</Label><br>
-                <Select id="Gender-Select" name="Gender">
+                <Select id="Gender-Select" name="Gender" required>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </Select>
             </div>
             <div id="Status-div">
                 <label>Status</label>
-                <select name="TypeOfUser" id="Status-select">
+                <select name="TypeOfUser" id="Status-select" required>
                     <option value="Student">Student</option>
                     <option value="Instructor">Instructor</option>
                 </select>
             </div>
-            <button onclick="" id="Register-btn">Register</button>
+            <button type="submit" id="Register-btn">Register</button>
         </div>
         </form>
         </div>

@@ -57,7 +57,7 @@ public class UserDAO
 				String Phone=rs.getString("Phone");
 				Date Birthdate=rs.getDate("Birthdate");
 				int Age=rs.getInt("Age");
-				String Photo = getBase64Img(rs.getBlob("Photo"));
+				String Photo = getBase64Img(rs.getBlob("Photo").getBinaryStream());
 				int Educationlevel=rs.getInt("Educationlevel");
 				String Company=rs.getString("Company");
 				String Joptitle=rs.getString("Joptitle");
@@ -68,12 +68,12 @@ public class UserDAO
 				if(typeofuser.equals("Instructor"))
 				{
 					ReturnedUser=new Instructor(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							"data:image/jpg;base64,"+Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,ShowCourses(id));
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,ShowCourses(id));
 				}
 				else
 				{
 					ReturnedUser=new Student(id,Email,Password,fullname,Nationality,Phone,Birthdate,Age,
-							"data:image/jpg;base64,"+Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,ShowCourses(id));
+							Photo,Educationlevel,Company,Joptitle,Department,Website,Gender,ShowCourses(id));
 				}
 			}
 		} catch (SQLException e){
@@ -83,14 +83,13 @@ public class UserDAO
 		return ReturnedUser;
 	}
 	
-	public boolean Singup(String Email,String Password,String FirstName,String LastName,String Nationality,String Phone,String Birthday,
-			String BirthMonth,String BirthYear,Part Photo,int Educationlevel,String Company,String Joptitle,String Department,String Website,String TypeOfUser,String Gender)
+	public boolean Singup(String Email,String Password,String FirstName,String LastName,String Nationality,String Phone,LocalDate Birthdate,
+			Part Photo,int Educationlevel,String TypeOfUser,String Gender)
 	{
 		short out=-1;
-		String query="{call SignUp(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+		String query="{call SignUp(?,?,?,?,?,?,?,?,?,?,?)}";
 		if(TypeOfUser.equals("Instructor"))
 			Educationlevel=-1;
-		LocalDate Birthdate=LocalDate.of(Integer.parseInt(BirthYear),Integer.parseInt(BirthMonth),Integer.parseInt(Birthday));
 		try {
 			CallableStatement Call=conn.prepareCall(query);
 			Call.setString(1, FirstName+" "+LastName);
@@ -101,16 +100,12 @@ public class UserDAO
 			Call.setDate(6, Date.valueOf(Birthdate));
 			Call.setBlob(7, Photo.getInputStream());
 			Call.setInt(8, Educationlevel);
-			Call.setNString(9, Company);
-			Call.setNString(10,Joptitle);
-			Call.setNString(11, Department);
-			Call.setNString(12,Website);
-			Call.setString(13,TypeOfUser);
-			Call.setString(14,Gender);
-			Call.registerOutParameter(15, Types.SMALLINT);
+			Call.setString(9,TypeOfUser);
+			Call.setString(10,Gender);
+			Call.registerOutParameter(11, Types.SMALLINT);
 			Call.execute();
 			
-			out=Call.getShort(15);
+			out=Call.getShort(11);
 			
 		} catch (SQLException e){
 			e.printStackTrace();	
@@ -122,12 +117,10 @@ public class UserDAO
 		return (out == 0);
 	}
 	
-	private  String getBase64Img(Blob ImgBlob)
+	public  String getBase64Img(InputStream inputStream)
 	{
-		InputStream inputStream;
 		String Base64Img=null;
 		try {
-			inputStream = ImgBlob.getBinaryStream();
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			byte[] buffer = new byte[4096];
 			int bytesRead = -1;
@@ -139,15 +132,12 @@ public class UserDAO
 			byte[] imageBytes = outputStream.toByteArray();
 			 
 			Base64Img = Base64.getEncoder().encodeToString(imageBytes);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return Base64Img;
+		return "data:image/jpg;base64,"+Base64Img;
 	}
 	public void AddCourse(int person_id,String Name,String Field,LocalDate StartDate,LocalDate EndDate , Date Duration) 
 	{
@@ -221,7 +211,7 @@ public class UserDAO
 				if (rs2.next())
 				{
 					String InstructorName = rs2.getString("fullname");
-					String InstructorPhoto="data:image/jpg;base64,"+getBase64Img(rs2.getBlob("Photo"));
+					String InstructorPhoto=getBase64Img(rs2.getBlob("Photo").getBinaryStream());
 					course.setInstructor(new Instructor(InstructorID,InstructorName,InstructorPhoto));
 				}	
 				}

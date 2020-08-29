@@ -142,11 +142,16 @@
            <div class="ProPho-Background" style="background-image: url(${Member.getPhoto()})">
                <div class="Blured"></div>
            </div>
-           <div class="ProPho" style="background-image: url(${Member.getPhoto()})">
+           <div onclick="ProfilePhotoClicked()" class="ProPho" style="background-image: url(${Member.getPhoto()})">
               <div class="shadow">
                 <i class="fas fa-camera"></i>
            </div>
            </div>
+           <form action="/EditProfile" method="post" enctype="multipart/form-data">
+                   <input id="ProfilePhoto" type="file" name="Photo" onchange="EditPhoto()" hidden>
+                   <input id="ProfilePhotoSubmit" type="submit" hidden>
+                   <input type="hidden" name="column" value="Photo">
+                   </form>
           <div class="info-container">
            <div class="Account-infoBox infoBox">
                <header>Account information</header>
@@ -292,6 +297,13 @@
             }
             function FileInputClicked(){
             	document.getElementById("AddPhoto-btn").click();
+            }
+            function ProfilePhotoClicked(){
+            	document.getElementById("ProfilePhoto").click();
+
+            }
+            function EditPhoto(){
+            	document.getElementById("ProfilePhotoSubmit").click();
             }
         </script>
 <!--<img src="${Member.getPhoto()}" /><br>

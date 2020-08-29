@@ -28,7 +28,7 @@
        <p>Online Coursera</p>
        </div>
        <div class="divider divider1"></div>
-       <div class="Dashboard_btn PageButtons" onclick="ShowContent(1)" onclick="MenubtnFocused('Dashboard_btn')" onmousemove="MenubtnIn('Dashboard_btn')" onmouseout="MenubtnOut('Dashboard_btn')"><label for="Dashboard_btn"><i class="fas fa-tachometer-alt"></i>&nbsp;Dashboard</label></div>
+       <div class="Dashboard_btn PageButtons" onclick="ShowContent(1)" onclick="MenubtnFocused('Dashboard_btn')" onmousemove="MenubtnIn('Dashboard_btn')" onmouseout="MenubtnOut('Dashboard_btn')"><a href="/Main">"<label for="Dashboard_btn"><i class="fas fa-tachometer-alt"></i>&nbsp;Dashboard</label></a></div>
        <div class="divider divider2"></div>
        <div class="Files_btn PageButtons" onclick="ShowContent(2)" onmousemove="MenubtnIn('Files_btn')" onmouseout="MenubtnOut('Files_btn')"> <a id="coursesbutton"><label for="Files_btn"><i class="fas fa-file-word"></i>&nbsp;Files</label></a></div>
        <div class="Quizes_btn PageButtons" onclick="ShowContent(3)" onclick="MenubtnFocused('Quizes_btn')" onmousemove="MenubtnIn('Quizes_btn')" onmouseout="MenubtnOut('Quizes_btn')"><label for="Quizes_btn"><i class="fas fa-pen-square"></i>&nbsp;Quizes</label></div>
