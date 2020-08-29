@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.coursera.User.User;
-import com.coursera.User.UserDAO;
 
 
 
@@ -23,13 +22,13 @@ public class AddCourseServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
+		response.sendRedirect("/Main");
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		User user=(User)request.getSession().getAttribute("Member");
-		UserDAO dao=new UserDAO();
+		CourseDAO dao=new CourseDAO();
 
 		String CourseName=request.getParameter("CourseName");
 		String CourseField=request.getParameter("CourseName");
@@ -45,7 +44,6 @@ public class AddCourseServlet extends HttpServlet{
 		
 		dao.AddCourse(user.getId(), CourseName, CourseField, LocalDate.of(Integer.parseInt(StartYear), Integer.parseInt(StartMonth), Integer.parseInt(StartDay)), 
 				LocalDate.of(Integer.parseInt(EndYear), Integer.parseInt(EndMonth), Integer.parseInt(EndDay)), new Date(2000,1,1));
-		user.setCourses(dao.ShowCourses(user.getId()));
-		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
+		response.sendRedirect("/Main");
 	}
 }

@@ -118,7 +118,7 @@
 		 	<button class="ShowCourseIDbtn" type="submit"><strong>Enroll</strong>&nbsp;</button>
 		  </form>	
 		 </c:if>
-  		<c:forEach items="${Member.getCourses()}" var="course">
+  		<c:forEach items="${CoursesArray}" var="course">
 				<div class="CourseBox">
 				<div class="CourseImg"></div>
 				<p>${course.getCourseID()}</p><br>
@@ -129,8 +129,8 @@
 				<c:if test="${Member.getUserType() == 'Instructor'}">
 					<a href="/Main/Course/DeleteCourse?CourseID=${course.getCourseID() }"><button id="DeleteCoursebtn" type="button"><i class="fas fa-trash-alt"></i></button></a>
 				</c:if>
-				<div class="InstructorImg"><img src="${course.getInstructor().getPhoto() }"/></div>
-				<label class="InstructorName">${course.getInstructor().getFullname() }</label>
+				<div class="InstructorImg"><img src="${course.getInstructorPhoto() }"/></div>
+				<label class="InstructorName">${course.getInstructorFullname() }</label>
 				<label class="CourseName">${course.getName()}</label>
 				<label class="CourseField">${course.getField()}</label>
 				<label class="CourseEndDate">${course.getEndDate()}</label>
@@ -168,7 +168,7 @@
                <div class="EmailBox Box" id="Email">
                 <Label class="Title">Email Address</Label>
                 <p class="info">${Member.getEmail() }</p>
-                   <form action="EditProfile" method="post"><input type="text" name="Value">
+                   <form action="EditProfile" method="post"><input type="email" name="Value">
                    <input type="hidden" name="column" value="Email">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Email')"><i class="far fa-edit"></i></button></a>
@@ -178,7 +178,7 @@
                <div class="PasswordBox Box" id="Password">
                 <Label class="Title">Password</Label>
                 <p class="info">${Member.getPassword() }</p>
-                <form action="EditProfile" method="post"><input type="text" name="Value">
+                <form action="EditProfile" method="post"><input type="password" name="Value">
                    <input type="hidden" name="column" value="Password">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Password')"><i class="far fa-edit"></i></button></a>
@@ -210,7 +210,7 @@
                <div class="Phone Box" id="Phone">
                    <Label class="Title">Phone</Label>
                    <p class="info">${Member.getPhone() }</p>
-                    <form action="EditProfile" method="post"><input type="text" name="Value">
+                    <form action="EditProfile" method="post"><input type="tel" pattern="01[0-2]{1}[0-9]{8}" name="Value">
                    <input type="hidden" name="column" value="Phone">
                    </form>
                     <a><button type ="button" class="edit" onclick="ShowEditFeild('Phone')"><i class="far fa-edit"></i></button></a>

@@ -76,6 +76,6 @@ public class EditProfileServlet extends HttpServlet{
 			System.out.println("Error edit");
 
 		}
-		request.getRequestDispatcher("/WEB-INF/Pages/Main.jsp").forward(request, response);
+		response.sendRedirect("Main");
 	}
 }

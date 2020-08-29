@@ -20,11 +20,10 @@ public class CourseEnrollServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int CourseID=Integer.parseInt(request.getParameter("CourseID"));
-		UserDAO dao=new UserDAO();
+		CourseDAO dao=new CourseDAO();
 		User user=(User)request.getSession().getAttribute("Member");
 		
 		dao.Enrollcourse(CourseID,user.getId());
-		user.setCourses(dao.ShowCourses(user.getId()));
 		response.sendRedirect("/Main");
 	}
 	
