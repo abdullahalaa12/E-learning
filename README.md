@@ -1,9 +1,9 @@
-# coursera
-this is the OOP project for the college
+E-learning System using Java servlets.
+this was the OOP project for the college using Java Servlets and Microsoft SQL Server
 made by:
-abdullah alaa
-tareq saleh
-omar shendy
-khaled 3sal
-abdelrahman fared
-abdelrahman mwafy
+Abdullah Alaa,
+Tareq Saleh,
+Omar Shendy,
+Khaled Abdelaziz,
+Abdelrahman Fared,
+Abdelrahman Mwafy
